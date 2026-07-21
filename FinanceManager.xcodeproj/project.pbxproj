@@ -29,9 +29,24 @@
 		0E3345F7300F7DF00032FFD1 /* FinanceManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0E33460D300F8D9C0032FFD1 /* Exceptions for "FinanceManager" folder in "FinanceManager" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Packages/AuthData,
+				Packages/AuthDomain,
+				Packages/Features/Auth,
+			);
+			target = 0E3345DF300F7DEE0032FFD1 /* FinanceManager */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0E3345E2300F7DEE0032FFD1 /* FinanceManager */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0E33460D300F8D9C0032FFD1 /* Exceptions for "FinanceManager" folder in "FinanceManager" target */,
+			);
 			path = FinanceManager;
 			sourceTree = "<group>";
 		};
