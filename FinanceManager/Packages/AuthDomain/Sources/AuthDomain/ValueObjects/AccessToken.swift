@@ -5,10 +5,10 @@
 //  Created by Ульяна Гритчина on 21.07.2026.
 //
 
-struct AccessToken {
-    let value: String
+public struct AccessToken: Sendable {
+    public let value: String
     
-    init(_ value: String?) throws {
+    public init(_ value: String?) throws {
         guard let value, !value.isEmpty else {
             throw ValidationError.wrongValue
         }

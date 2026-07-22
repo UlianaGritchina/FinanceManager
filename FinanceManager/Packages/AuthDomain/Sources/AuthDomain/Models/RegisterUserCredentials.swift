@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RegisterUserCredentials {
-    let userName: UserName
-    let password: Password
+public struct RegisterUserCredentials: Sendable {
+    public let userName: UserName
+    public let password: Password
 }

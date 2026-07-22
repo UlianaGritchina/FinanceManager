@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct UserName {
-    let value: String
-
-    init(_ value: String?) throws {
+public struct UserName: Sendable {
+    public let value: String
+    
+    public init(_ value: String?) throws {
         guard let value, !value.isEmpty else {
             throw ValidationError.wrongValue
         }
-
+        
         self.value = value
     }
 }

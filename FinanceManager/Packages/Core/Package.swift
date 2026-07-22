@@ -4,21 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "AuthDomain",
+    name: "Core",
     platforms: [ .iOS(.v17) ],
     products: [
         .library(
-            name: "AuthDomain",
-            targets: ["AuthDomain"]
+            name: "Core",
+            targets: ["Core"]
         ),
     ],
     targets: [
         .target(
-            name: "AuthDomain"
+            name: "Core"
         ),
         .testTarget(
-            name: "AuthDomainTests",
-            dependencies: ["AuthDomain"]
+            name: "CoreTests",
+            dependencies: ["Core"]
         ),
     ]
 )

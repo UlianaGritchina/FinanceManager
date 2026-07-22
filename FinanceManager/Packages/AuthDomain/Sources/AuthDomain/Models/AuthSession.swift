@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct AuthSession {
-    let accessToken: AccessToken
-    let refreshToken: RefreshToken
+public struct AuthSession: Sendable {
+    public init(accessToken: AccessToken, refreshToken: RefreshToken) {
+        self.accessToken = accessToken
+        self.refreshToken = refreshToken
+    }
+    
+    public let accessToken: AccessToken
+    public let refreshToken: RefreshToken
 }

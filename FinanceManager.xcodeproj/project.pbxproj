@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0EC1813D3010E859005B9337 /* AuthDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC1813C3010E859005B9337 /* AuthDomain */; };
+		0EC1813F3010E85D005B9337 /* AuthData in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC1813E3010E85D005B9337 /* AuthData */; };
+		0EC181413010E860005B9337 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181403010E860005B9337 /* Core */; };
+		0EC181433010E863005B9337 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181423010E863005B9337 /* Auth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0E3345EE300F7DF00032FFD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -35,6 +42,7 @@
 			membershipExceptions = (
 				Packages/AuthData,
 				Packages/AuthDomain,
+				Packages/Core,
 				Packages/Features/Auth,
 			);
 			target = 0E3345DF300F7DEE0032FFD1 /* FinanceManager */;
@@ -67,6 +75,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EC1813F3010E85D005B9337 /* AuthData in Frameworks */,
+				0EC1813D3010E859005B9337 /* AuthDomain in Frameworks */,
+				0EC181433010E863005B9337 /* Auth in Frameworks */,
+				0EC181413010E860005B9337 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +105,7 @@
 				0E3345E2300F7DEE0032FFD1 /* FinanceManager */,
 				0E3345F0300F7DF00032FFD1 /* FinanceManagerTests */,
 				0E3345FA300F7DF00032FFD1 /* FinanceManagerUITests */,
+				0EC1813B3010E859005B9337 /* Frameworks */,
 				0E3345E1300F7DEE0032FFD1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +118,13 @@
 				0E3345F7300F7DF00032FFD1 /* FinanceManagerUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0EC1813B3010E859005B9337 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +147,10 @@
 			);
 			name = FinanceManager;
 			packageProductDependencies = (
+				0EC1813C3010E859005B9337 /* AuthDomain */,
+				0EC1813E3010E85D005B9337 /* AuthData */,
+				0EC181403010E860005B9337 /* Core */,
+				0EC181423010E863005B9337 /* Auth */,
 			);
 			productName = FinanceManager;
 			productReference = 0E3345E0300F7DEE0032FFD1 /* FinanceManager.app */;
@@ -415,11 +439,13 @@
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FM;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,6 +454,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sugri.FinanceManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -447,11 +477,13 @@
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FM;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +492,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sugri.FinanceManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -593,6 +629,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0EC1813C3010E859005B9337 /* AuthDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthDomain;
+		};
+		0EC1813E3010E85D005B9337 /* AuthData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthData;
+		};
+		0EC181403010E860005B9337 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		0EC181423010E863005B9337 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Auth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E3345D8300F7DEE0032FFD1 /* Project object */;
 }
