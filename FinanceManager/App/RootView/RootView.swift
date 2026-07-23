@@ -5,7 +5,7 @@
 //  Created by Ульяна Гритчина on 23.07.2026.
 //
 
-import Auth
+import Authorization
 import Swinject
 import SwiftUI
 

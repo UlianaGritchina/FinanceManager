@@ -5,9 +5,9 @@
 //  Created by Ульяна Гритчина on 23.07.2026.
 //
 
-import Auth
-import AuthData
-import AuthDomain
+import Authorization
+import AuthorizationData
+import AuthorizationDomain
 import Core
 import Swinject
 import Foundation

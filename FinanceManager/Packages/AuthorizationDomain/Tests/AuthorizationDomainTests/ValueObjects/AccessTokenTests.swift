@@ -1,5 +1,5 @@
 import Testing
-@testable import AuthDomain
+@testable import AuthorizationDomain
 
 @Suite
 struct AccessTokenTests {

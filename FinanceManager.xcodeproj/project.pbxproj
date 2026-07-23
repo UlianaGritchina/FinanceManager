@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0E6D71B430121B8900521F65 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D71B330121B8900521F65 /* Swinject */; };
-		0EC1813D3010E859005B9337 /* AuthDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC1813C3010E859005B9337 /* AuthDomain */; };
-		0EC1813F3010E85D005B9337 /* AuthData in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC1813E3010E85D005B9337 /* AuthData */; };
+		0E6D72403012819500521F65 /* Authorization in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D723F3012819500521F65 /* Authorization */; };
+		0E6D72423012819800521F65 /* AuthorizationData in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72413012819800521F65 /* AuthorizationData */; };
+		0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72433012819D00521F65 /* AuthorizationDomain */; };
 		0EC181413010E860005B9337 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181403010E860005B9337 /* Core */; };
-		0EC181433010E863005B9337 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181423010E863005B9337 /* Auth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +41,7 @@
 		0E33460D300F8D9C0032FFD1 /* Exceptions for "FinanceManager" folder in "FinanceManager" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Packages/AuthData,
-				Packages/AuthDomain,
 				Packages/Core,
-				Packages/Features/Auth,
 				Resources/Info.plist,
 			);
 			target = 0E3345DF300F7DEE0032FFD1 /* FinanceManager */;
@@ -77,10 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EC1813F3010E85D005B9337 /* AuthData in Frameworks */,
+				0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */,
+				0E6D72423012819800521F65 /* AuthorizationData in Frameworks */,
 				0E6D71B430121B8900521F65 /* Swinject in Frameworks */,
-				0EC1813D3010E859005B9337 /* AuthDomain in Frameworks */,
-				0EC181433010E863005B9337 /* Auth in Frameworks */,
+				0E6D72403012819500521F65 /* Authorization in Frameworks */,
 				0EC181413010E860005B9337 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,11 +147,11 @@
 			);
 			name = FinanceManager;
 			packageProductDependencies = (
-				0EC1813C3010E859005B9337 /* AuthDomain */,
-				0EC1813E3010E85D005B9337 /* AuthData */,
 				0EC181403010E860005B9337 /* Core */,
-				0EC181423010E863005B9337 /* Auth */,
 				0E6D71B330121B8900521F65 /* Swinject */,
+				0E6D723F3012819500521F65 /* Authorization */,
+				0E6D72413012819800521F65 /* AuthorizationData */,
+				0E6D72433012819D00521F65 /* AuthorizationDomain */,
 			);
 			productName = FinanceManager;
 			productReference = 0E3345E0300F7DEE0032FFD1 /* FinanceManager.app */;
@@ -656,21 +653,21 @@
 			package = 0E6D71B230121B6A00521F65 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
 		};
-		0EC1813C3010E859005B9337 /* AuthDomain */ = {
+		0E6D723F3012819500521F65 /* Authorization */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AuthDomain;
+			productName = Authorization;
 		};
-		0EC1813E3010E85D005B9337 /* AuthData */ = {
+		0E6D72413012819800521F65 /* AuthorizationData */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AuthData;
+			productName = AuthorizationData;
+		};
+		0E6D72433012819D00521F65 /* AuthorizationDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthorizationDomain;
 		};
 		0EC181403010E860005B9337 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
-		};
-		0EC181423010E863005B9337 /* Auth */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Auth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

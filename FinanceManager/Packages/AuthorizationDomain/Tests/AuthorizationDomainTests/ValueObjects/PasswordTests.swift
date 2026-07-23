@@ -1,32 +1,32 @@
 import Testing
-@testable import AuthDomain
+@testable import AuthorizationDomain
 
 @Suite
-struct RefreshTokenTests {
+struct PasswordTests {
     @Test("Successful init")
     func init_with_valid_value() async throws {
-        let token = "123"
+        let pass = "123"
         
-        let refreshToken = try RefreshToken(token)
+        let password = try Password(pass)
         
-        #expect(refreshToken.value == token)
+        #expect(password.value == pass)
     }
     
     @Test("Should throw error")
     func init_with_empty_value() async throws {
-        let token = ""
+        let pass = ""
         
         #expect(throws: ValidationError.wrongValue) {
-            try RefreshToken(token)
+            try Password(pass)
         }
     }
     
     @Test("Should throw error")
     func init_with_nil_value() async throws {
-        let token: String? = nil
+        let pass: String? = nil
         
         #expect(throws: ValidationError.wrongValue) {
-            try RefreshToken(token)
+            try Password(pass)
         }
     }
 }

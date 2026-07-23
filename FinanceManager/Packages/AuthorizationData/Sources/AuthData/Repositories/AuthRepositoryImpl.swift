@@ -5,7 +5,7 @@
 //  Created by Ульяна Гритчина on 22.07.2026.
 //
 
-import AuthDomain
+import AuthorizationDomain
 import Foundation
 
 public final class AuthRepositoryImpl: AuthRepository {

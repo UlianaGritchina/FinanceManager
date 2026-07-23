@@ -4,29 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "AuthData",
+    name: "AuthorizationData",
     platforms: [ .iOS(.v17) ],
     products: [
         .library(
-            name: "AuthData",
-            targets: ["AuthData"]
+            name: "AuthorizationData",
+            targets: ["AuthorizationData"]
         ),
     ],
     dependencies: [
-        .package(path: "../AuthDomain"),
+        .package(path: "../AuthorizationDomain"),
         .package(path: "../Core"),
     ],
     targets: [
         .target(
-            name: "AuthData",
+            name: "AuthorizationData",
             dependencies: [
-                .product(name: "AuthDomain", package: "AuthDomain"),
+                .product(name: "AuthorizationDomain", package: "AuthorizationDomain"),
                 .product(name: "Core", package: "Core"),
             ]
         ),
         .testTarget(
-            name: "AuthDataTests",
-            dependencies: ["AuthData"]
+            name: "AuthorizationDataTests",
+            dependencies: ["AuthorizationData"]
         ),
     ]
 )

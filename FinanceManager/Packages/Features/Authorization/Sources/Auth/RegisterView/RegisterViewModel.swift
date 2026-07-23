@@ -5,8 +5,8 @@
 //  Created by Ульяна Гритчина on 23.07.2026.
 //
 
-import AuthDomain
-import AuthData
+import AuthorizationDomain
+import AuthorizationData
 import Foundation
 
 @Observable
@@ -35,6 +35,6 @@ public final class RegisterViewModel {
         let userName = try UserName(email)
         let password = try Password(password)
         let credentials = RegisterUserCredentials(name: userName, password: password)
-        let token = try await authRepository.register(user: credentials)
+        let _ = try await authRepository.register(user: credentials)
     }
 }
