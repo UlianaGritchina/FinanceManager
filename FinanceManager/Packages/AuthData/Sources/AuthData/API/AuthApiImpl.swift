@@ -8,31 +8,35 @@
 import Core
 import Foundation
 
-actor AuthApiImpl: AuthAPI {
-    private let networkClient: NetworkClient = NetworkClientImpl(baseURL: URL(string:"http://yourflow.pro")!)
+public final class AuthApiImpl: AuthAPI {
+    private let networkClient: NetworkClient
     
-    func registerNewUser(_ user: AuthUserDTO) async throws -> AuthTokenResponseDTO {
+    public init(networkClient: NetworkClient) {
+        self.networkClient = networkClient
+    }
+    
+    public func registerNewUser(_ user: AuthUserDTO) async throws -> AuthTokenResponseDTO {
         let endPoint = AuthEndpoint.registerNewUser(user)
         
         return try await networkClient.request(endPoint)
     }
     
-    func login(_ user: AuthUserDTO) async throws -> AuthTokenResponseDTO {
+    public func login(_ user: AuthUserDTO) async throws -> AuthTokenResponseDTO {
         let endPoint = AuthEndpoint.login(user)
         
         return try await networkClient.request(endPoint)
     }
     
-    func refreshUser(refreshToken: RefreshTokenDTO) async throws -> AuthTokenResponseDTO {
+    public func refreshUser(refreshToken: RefreshTokenDTO) async throws -> AuthTokenResponseDTO {
         let endPoint = AuthEndpoint.refreshUser(refreshToken)
         return try await networkClient.request(endPoint)
     }
     
-    func logOut() async throws {
+    public func logOut() async throws {
         try await networkClient.request(AuthEndpoint.logOut)
     }
     
-    func deleteUser() async throws {
+    public func deleteUser() async throws {
         try await networkClient.request(AuthEndpoint.deleteUser)
     }
 }

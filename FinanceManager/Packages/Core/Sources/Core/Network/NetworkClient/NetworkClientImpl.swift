@@ -12,10 +12,10 @@ public final class NetworkClientImpl: NetworkClient {
     private let session: URLSession
     private let requestBuilder: RequestBuilder
     
-    public init(baseURL: URL, session: URLSession = .shared) {
+    public init(baseURL: URL, session: URLSession = .shared, requestBuilder: RequestBuilder) {
         self.baseURL = baseURL
         self.session = session
-        requestBuilder = RequestBuilderImpl(baseURL: baseURL)
+        self.requestBuilder = requestBuilder
     }
     
     public func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct RefreshTokenDTO: Encodable {
+public struct RefreshTokenDTO: Encodable {
     let refreshToken: String
 }

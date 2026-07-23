@@ -12,9 +12,17 @@ let package = Package(
             targets: ["Auth"]
         ),
     ],
+    dependencies: [
+        .package(path: "../AuthDomain"),
+        .package(path: "../AuthData"),
+    ],
     targets: [
         .target(
-            name: "Auth"
+            name: "Auth",
+            dependencies: [
+                .product(name: "AuthDomain", package: "AuthDomain"),
+                .product(name: "AuthData", package: "AuthData"),
+            ]
         ),
         .testTarget(
             name: "AuthTests",

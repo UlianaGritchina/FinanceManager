@@ -8,7 +8,7 @@
 import AuthDomain
 import Foundation
 
-struct AuthTokenResponseDTO: Decodable {
+public struct AuthTokenResponseDTO: Decodable {
     let accessToken: String
     let refreshToken: String
 }

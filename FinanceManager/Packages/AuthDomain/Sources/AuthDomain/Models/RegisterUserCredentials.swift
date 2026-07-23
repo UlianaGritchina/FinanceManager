@@ -8,6 +8,11 @@
 import Foundation
 
 public struct RegisterUserCredentials: Sendable {
-    public let userName: UserName
+    public let name: UserName
     public let password: Password
+    
+    public init(name: UserName, password: Password) {
+        self.name = name
+        self.password = password
+    }
 }

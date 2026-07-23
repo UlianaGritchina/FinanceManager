@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RequestBuilder: Sendable {
+public protocol RequestBuilder: Sendable {
     func build(for endpoint: Endpoint) throws -> URLRequest
 }

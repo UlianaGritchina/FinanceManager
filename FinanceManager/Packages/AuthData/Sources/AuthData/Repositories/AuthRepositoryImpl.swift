@@ -8,16 +8,16 @@
 import AuthDomain
 import Foundation
 
-final class AuthRepositoryImpl: AuthRepository {
+public final class AuthRepositoryImpl: AuthRepository {
     private let authAPI: AuthAPI
     
-    init(authAPI: AuthAPI) {
+    public init(authAPI: AuthAPI) {
         self.authAPI = authAPI
     }
     
-    func register(user: RegisterUserCredentials) async throws -> AuthSession {
+    public func register(user: RegisterUserCredentials) async throws -> AuthSession {
         let userDTO = AuthUserDTO(
-            name: user.userName.value,
+            name: user.name.value,
             password: user.password.value
         )
         
@@ -26,9 +26,9 @@ final class AuthRepositoryImpl: AuthRepository {
         return try authTokenResponse.toDomain()
     }
     
-    func login(user: RegisterUserCredentials) async throws -> AuthSession {
+    public func login(user: RegisterUserCredentials) async throws -> AuthSession {
         let userDTO = AuthUserDTO(
-            name: user.userName.value,
+            name: user.name.value,
             password: user.password.value
         )
         
@@ -37,7 +37,7 @@ final class AuthRepositoryImpl: AuthRepository {
         return try authTokenResponse.toDomain()
     }
     
-    func delete() async throws {
+    public func delete() async throws {
         try await authAPI.deleteUser()
     }
 }

@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class RequestBuilderImpl: RequestBuilder {
+public final class RequestBuilderImpl: RequestBuilder {
     private let baseURL: URL
     
-    init(baseURL: URL) {
+    public init(baseURL: URL) {
         self.baseURL = baseURL
     }
     
