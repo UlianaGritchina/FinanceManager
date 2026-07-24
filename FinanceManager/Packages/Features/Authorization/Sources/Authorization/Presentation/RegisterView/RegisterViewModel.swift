@@ -35,6 +35,7 @@ public final class RegisterViewModel {
         let userName = try UserName(email)
         let password = try Password(password)
         let credentials = RegisterUserCredentials(name: userName, password: password)
-        let _ = try await authRepository.register(user: credentials)
+        let token = try await authRepository.register(user: credentials)
+        print(token)
     }
 }

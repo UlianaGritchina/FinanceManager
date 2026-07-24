@@ -10,11 +10,8 @@ import Swinject
 import SwiftUI
 
 struct RootView: View {
+    let authFactory: AuthFactory
     var body: some View {
-        WelcomeView(resolver: AppAssembler.shared.resolver)
+        authFactory.makeLoginView()
     }
-}
-
-#Preview {
-    RootView()
 }

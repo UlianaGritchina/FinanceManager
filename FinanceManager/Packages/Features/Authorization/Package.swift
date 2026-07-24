@@ -23,6 +23,7 @@ let package = Package(
             dependencies: [
                 .product(name: "AuthorizationDomain", package: "AuthorizationDomain"),
                 .product(name: "AuthorizationData", package: "AuthorizationData"),
+                "Swinject"
             ]
         ),
         .testTarget(

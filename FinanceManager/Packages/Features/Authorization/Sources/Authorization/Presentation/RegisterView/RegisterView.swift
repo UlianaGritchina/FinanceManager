@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @Environment(\.dismiss) var dismiss
+    
     @State private var viewModel: RegisterViewModel
     
     init(viewModel: RegisterViewModel) {
@@ -33,6 +35,13 @@ struct RegisterView: View {
                 }
             }
             .navigationTitle("Create Account")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "xmark")
+                    }
+                }
+            }
         }
     }
 }

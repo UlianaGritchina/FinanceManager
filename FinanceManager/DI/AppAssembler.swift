@@ -5,6 +5,8 @@
 //  Created by Ульяна Гритчина on 23.07.2026.
 //
 
+import Core
+import Authorization
 import Foundation
 import Swinject
 

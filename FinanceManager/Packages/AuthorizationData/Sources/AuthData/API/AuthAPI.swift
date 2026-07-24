@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol AuthAPI {
+public protocol AuthAPI: Sendable {
     func registerNewUser(_ user: AuthUserDTO) async throws -> AuthTokenResponseDTO
     func login(_ user: AuthUserDTO) async throws -> AuthTokenResponseDTO
     func refreshUser(refreshToken: RefreshTokenDTO) async throws -> AuthTokenResponseDTO

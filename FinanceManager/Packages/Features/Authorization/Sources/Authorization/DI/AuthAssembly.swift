@@ -5,15 +5,16 @@
 //  Created by Ульяна Гритчина on 23.07.2026.
 //
 
-import Authorization
 import AuthorizationData
 import AuthorizationDomain
 import Core
 import Swinject
 import Foundation
 
-final class AuthAssembly: Assembly {
-    func assemble(container: Container) {
+public final class AuthAssembly: Assembly {
+    public init() { }
+    
+    public func assemble(container: Container) {
         container.register(AuthAPI.self) { resolver in
             AuthApiImpl(
                 networkClient: resolver.resolve(NetworkClient.self)!
@@ -28,6 +29,10 @@ final class AuthAssembly: Assembly {
         
         container.register(RegisterViewModel.self) { resolver in
             RegisterViewModel(authRepository: resolver.resolve(AuthRepository.self)!)
+        }
+
+        container.register(AuthFactory.self) { resolver in
+            AuthFactoryImpl(resolver: resolver)
         }
     }
 }
