@@ -13,7 +13,8 @@ import Swinject
 enum AppAssembler {
     static let shared = Assembler([
         CoreAssembly(),
-        AuthAssembly()
+        AuthAssembly(),
+        RootAssembly(),
     ])
 }
 

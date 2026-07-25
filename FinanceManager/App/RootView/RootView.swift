@@ -10,8 +10,19 @@ import Swinject
 import SwiftUI
 
 struct RootView: View {
-    let authFactory: AuthFactory
+    @State private var viewModel: RootViewModel
+    
+    init(viewModel: RootViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
-        authFactory.makeLoginView()
+        VStack {
+            if viewModel.isShowLoginView {
+                viewModel.authFactory.makeLoginView()
+            } else {
+                Text("user registered")
+            }
+        }
     }
 }

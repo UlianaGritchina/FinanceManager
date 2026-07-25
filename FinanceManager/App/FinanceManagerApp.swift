@@ -11,10 +11,10 @@ import Swinject
 
 @main
 struct FinanceManagerApp: App {
-    let appAssembly = AppAssembler.shared.resolver
+    let appAssembly = AppAssembler.shared
     var body: some Scene {
         WindowGroup {
-            RootView(authFactory: appAssembly.resolve(AuthFactory.self)!)
+            RootView(viewModel: appAssembly.resolver.resolve(RootViewModel.self)!)
         }
     }
 }

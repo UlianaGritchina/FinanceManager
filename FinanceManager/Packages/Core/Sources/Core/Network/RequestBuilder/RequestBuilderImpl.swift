@@ -20,7 +20,9 @@ public final class RequestBuilderImpl: RequestBuilder {
             resolvingAgainstBaseURL: false
         )
         
-        components?.queryItems = endpoint.queryItems
+        if !endpoint.queryItems.isEmpty {
+            components?.queryItems = endpoint.queryItems
+        }
         
         guard let url = components?.url else {
             throw NetworkError.invalidURL

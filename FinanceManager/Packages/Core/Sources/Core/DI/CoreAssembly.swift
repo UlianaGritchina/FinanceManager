@@ -15,16 +15,21 @@ public final class CoreAssembly: Assembly {
     public func assemble(container: Container) {
         container.register(RequestBuilder.self) { _ in
             RequestBuilderImpl(
-                baseURL: URL(string: "http://yourflow.pro")!
+                baseURL: AppConfiguration.baseURL
             )
         }
         .inObjectScope(.container)
         
-        container.register(NetworkClient.self) { _ in
+        container.register(NetworkClient.self) { resolver in
             NetworkClientImpl(
-                baseURL: URL(string: "http://yourflow.pro")!,
-                requestBuilder: container.resolve(RequestBuilder.self)!
+                baseURL: AppConfiguration.baseURL,
+                requestBuilder: resolver.resolve(RequestBuilder.self)!
             )
+        }
+        .inObjectScope(.container)
+        
+        container.register(KeychainStorage.self) { _ in
+            KeychainStorageImpl(service: AppConfiguration.keychainService)
         }
         .inObjectScope(.container)
     }
