@@ -8,6 +8,6 @@
 import Foundation
 
 public enum AppConfiguration {
-    public static let baseURL = URL(string: "https://yourflow.pro")!
+    public static let baseURL = URL(string: "http://yourflow.pro")!
     public static let keychainService = "com.sugri.fm"
 }

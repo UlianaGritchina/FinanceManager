@@ -20,7 +20,7 @@ public final class NetworkClientImpl: NetworkClient {
     
     public func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         let request = try requestBuilder.build(for: endpoint)
-        
+        print(request)
         let (data, response) = try await session.data(for: request)
         
         try validate(response)
