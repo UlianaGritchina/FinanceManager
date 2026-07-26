@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0E6D71B430121B8900521F65 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D71B330121B8900521F65 /* Swinject */; };
+		0E6D72403012819500521F65 /* Authorization in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D723F3012819500521F65 /* Authorization */; };
+		0E6D72423012819800521F65 /* AuthorizationData in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72413012819800521F65 /* AuthorizationData */; };
+		0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72433012819D00521F65 /* AuthorizationDomain */; };
+		0EC181413010E860005B9337 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181403010E860005B9337 /* Core */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0E3345EE300F7DF00032FFD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -33,9 +41,8 @@
 		0E33460D300F8D9C0032FFD1 /* Exceptions for "FinanceManager" folder in "FinanceManager" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Packages/AuthData,
-				Packages/AuthDomain,
-				Packages/Features/Auth,
+				Packages/Core,
+				Resources/Info.plist,
 			);
 			target = 0E3345DF300F7DEE0032FFD1 /* FinanceManager */;
 		};
@@ -67,6 +74,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */,
+				0E6D72423012819800521F65 /* AuthorizationData in Frameworks */,
+				0E6D71B430121B8900521F65 /* Swinject in Frameworks */,
+				0E6D72403012819500521F65 /* Authorization in Frameworks */,
+				0EC181413010E860005B9337 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +105,7 @@
 				0E3345E2300F7DEE0032FFD1 /* FinanceManager */,
 				0E3345F0300F7DF00032FFD1 /* FinanceManagerTests */,
 				0E3345FA300F7DF00032FFD1 /* FinanceManagerUITests */,
+				0EC1813B3010E859005B9337 /* Frameworks */,
 				0E3345E1300F7DEE0032FFD1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +118,13 @@
 				0E3345F7300F7DF00032FFD1 /* FinanceManagerUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0EC1813B3010E859005B9337 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +147,11 @@
 			);
 			name = FinanceManager;
 			packageProductDependencies = (
+				0EC181403010E860005B9337 /* Core */,
+				0E6D71B330121B8900521F65 /* Swinject */,
+				0E6D723F3012819500521F65 /* Authorization */,
+				0E6D72413012819800521F65 /* AuthorizationData */,
+				0E6D72433012819D00521F65 /* AuthorizationDomain */,
 			);
 			productName = FinanceManager;
 			productReference = 0E3345E0300F7DEE0032FFD1 /* FinanceManager.app */;
@@ -210,6 +235,9 @@
 			);
 			mainGroup = 0E3345D7300F7DEE0032FFD1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0E6D71B230121B6A00521F65 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0E3345E1300F7DEE0032FFD1 /* Products */;
 			projectDirPath = "";
@@ -415,11 +443,14 @@
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FinanceManager/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FM;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,6 +459,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sugri.FinanceManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -447,11 +482,14 @@
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FinanceManager/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FM;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +498,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sugri.FinanceManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -593,6 +635,41 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0E6D71B230121B6A00521F65 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E6D71B330121B8900521F65 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E6D71B230121B6A00521F65 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		0E6D723F3012819500521F65 /* Authorization */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Authorization;
+		};
+		0E6D72413012819800521F65 /* AuthorizationData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthorizationData;
+		};
+		0E6D72433012819D00521F65 /* AuthorizationDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthorizationDomain;
+		};
+		0EC181403010E860005B9337 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E3345D8300F7DEE0032FFD1 /* Project object */;
 }
