@@ -11,6 +11,8 @@
 		0E6D72403012819500521F65 /* Authorization in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D723F3012819500521F65 /* Authorization */; };
 		0E6D72423012819800521F65 /* AuthorizationData in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72413012819800521F65 /* AuthorizationData */; };
 		0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72433012819D00521F65 /* AuthorizationDomain */; };
+		0E7A38EF3016795600B9D005 /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E7A38EE3016795600B9D005 /* Profile */; };
+		0E7A38F13016795B00B9D005 /* ProfileData in Frameworks */ = {isa = PBXBuildFile; productRef = 0E7A38F03016795B00B9D005 /* ProfileData */; };
 		0EC181413010E860005B9337 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181403010E860005B9337 /* Core */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Packages/Core,
+				Packages/Features/Profile,
+				Packages/ProfileData,
 				Resources/Info.plist,
 			);
 			target = 0E3345DF300F7DEE0032FFD1 /* FinanceManager */;
@@ -74,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E7A38F13016795B00B9D005 /* ProfileData in Frameworks */,
+				0E7A38EF3016795600B9D005 /* Profile in Frameworks */,
 				0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */,
 				0E6D72423012819800521F65 /* AuthorizationData in Frameworks */,
 				0E6D71B430121B8900521F65 /* Swinject in Frameworks */,
@@ -152,6 +158,8 @@
 				0E6D723F3012819500521F65 /* Authorization */,
 				0E6D72413012819800521F65 /* AuthorizationData */,
 				0E6D72433012819D00521F65 /* AuthorizationDomain */,
+				0E7A38EE3016795600B9D005 /* Profile */,
+				0E7A38F03016795B00B9D005 /* ProfileData */,
 			);
 			productName = FinanceManager;
 			productReference = 0E3345E0300F7DEE0032FFD1 /* FinanceManager.app */;
@@ -664,6 +672,14 @@
 		0E6D72433012819D00521F65 /* AuthorizationDomain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AuthorizationDomain;
+		};
+		0E7A38EE3016795600B9D005 /* Profile */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Profile;
+		};
+		0E7A38F03016795B00B9D005 /* ProfileData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProfileData;
 		};
 		0EC181403010E860005B9337 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
