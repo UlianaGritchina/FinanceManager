@@ -8,18 +8,25 @@
 import Authorization
 import Core
 import Foundation
+import Profile
 
 @Observable
 final class RootViewModel {
     private let keychainStorage: KeychainStorage
     
     let authFactory: AuthFactory
+    let profileFactory: ProfileFactory
     
     var isShowLoginView = true
     
-    init(authFactory: AuthFactory, keychainStorage: KeychainStorage) {
+    init(
+        authFactory: AuthFactory,
+        profileFactory: ProfileFactory,
+        keychainStorage: KeychainStorage
+    ) {
         self.authFactory = authFactory
         self.keychainStorage = keychainStorage
+        self.profileFactory = profileFactory
         checkAuthSession()
     }
     

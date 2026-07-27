@@ -14,12 +14,14 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Core"),
+        .package(path: "../ProfileDomain"),
     ],
     targets: [
         .target(
             name: "ProfileData",
             dependencies: [
-                .product(name: "Core", package: "Core")
+                .product(name: "Core", package: "Core"),
+                .product(name: "ProfileDomain", package: "ProfileDomain")
             ]
         ),
         .testTarget(

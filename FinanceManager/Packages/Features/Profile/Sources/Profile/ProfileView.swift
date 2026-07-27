@@ -6,13 +6,24 @@
 //
 
 import SwiftUI
+import ProfileDomain
 
 struct ProfileView: View {
-    var body: some View {
-        Text("Hello, World!")
+    @State private var viewModel: ProfileViewModel
+    
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
     }
-}
-
-#Preview {
-    ProfileView()
+    
+    var body: some View {
+        VStack {
+            if let profile = viewModel.profileInfo {
+                Text(profile.userName)
+            }
+            
+            Button(action: { viewModel.crateAccountButtonPressed() }) {
+                Text("Crate account")
+            }
+        }
+    }
 }

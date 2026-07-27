@@ -12,9 +12,21 @@ let package = Package(
             targets: ["Profile"]
         ),
     ],
+    dependencies: [
+        .package(path: "../ProfileDomain"),
+        .package(path: "../ProfileData"),
+        .package(path: "../Core"),
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
+    ],
     targets: [
         .target(
-            name: "Profile"
+            name: "Profile",
+            dependencies: [
+                .product(name: "ProfileDomain", package: "ProfileDomain"),
+                .product(name: "ProfileData", package: "ProfileData"),
+                .product(name: "Core", package: "Core"),
+                "Swinject",
+            ]
         ),
         .testTarget(
             name: "ProfileTests",

@@ -8,6 +8,7 @@
 import Authorization
 import Swinject
 import SwiftUI
+import Profile
 
 struct RootView: View {
     @State private var viewModel: RootViewModel
@@ -21,7 +22,7 @@ struct RootView: View {
             if viewModel.isShowLoginView {
                 viewModel.authFactory.makeLoginView()
             } else {
-                Text("user registered")
+                viewModel.profileFactory.makeProfileView()
             }
         }
     }
