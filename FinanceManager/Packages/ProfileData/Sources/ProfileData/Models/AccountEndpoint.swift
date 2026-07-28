@@ -17,7 +17,7 @@ enum AccountEndpoint {
 extension AccountEndpoint: Endpoint {
     var path: String {
         switch self {
-        case .createAccount(_):
+        case .createAccount:
             "api/v1/account"
         case .updateAccount(let id, _):
             "api/v1/account/\(id)"
@@ -28,12 +28,9 @@ extension AccountEndpoint: Endpoint {
     
     var method: HTTPMethod {
         switch self {
-        case .createAccount:
-                .post
-        case .updateAccount:
-                .put
-        case .delete:
-                .delete
+        case .createAccount: .post
+        case .updateAccount: .put
+        case .delete: .delete
         }
     }
     

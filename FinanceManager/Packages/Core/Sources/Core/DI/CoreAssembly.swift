@@ -13,9 +13,10 @@ public final class CoreAssembly: Assembly {
     public init() { }
     
     public func assemble(container: Container) {
-        container.register(RequestBuilder.self) { _ in
+        container.register(RequestBuilder.self) { resolver in
             RequestBuilderImpl(
-                baseURL: AppConfiguration.baseURL
+                baseURL: AppConfiguration.baseURL,
+                keychainStorage: resolver.resolve(KeychainStorage.self)!
             )
         }
         .inObjectScope(.container)
