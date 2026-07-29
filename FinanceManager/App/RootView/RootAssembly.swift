@@ -7,14 +7,14 @@
 
 import Authorization
 import Core
-import Swinject
 import Foundation
+import Account
+import Swinject
 
 final class RootAssembly: Assembly {
     func assemble(container: Container) {
         container.register(RootViewModel.self) { resolver in
             RootViewModel(
-                authFactory: resolver.resolve(AuthFactory.self)!,
                 keychainStorage: resolver.resolve(KeychainStorage.self)!
             )
         }

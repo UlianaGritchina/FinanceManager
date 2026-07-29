@@ -8,17 +8,17 @@
 import Authorization
 import Core
 import Foundation
+import Account
 
 @Observable
 final class RootViewModel {
     private let keychainStorage: KeychainStorage
     
-    let authFactory: AuthFactory
-    
     var isShowLoginView = true
     
-    init(authFactory: AuthFactory, keychainStorage: KeychainStorage) {
-        self.authFactory = authFactory
+    init(
+        keychainStorage: KeychainStorage
+    ) {
         self.keychainStorage = keychainStorage
         checkAuthSession()
     }

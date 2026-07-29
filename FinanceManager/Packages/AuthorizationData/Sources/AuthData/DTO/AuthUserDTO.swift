@@ -10,4 +10,9 @@ import Foundation
 public struct AuthUserDTO: Codable {
     let name: String
     let password: String
+    
+    public init(name: String, password: String) {
+        self.name = name
+        self.password = password
+    }
 }

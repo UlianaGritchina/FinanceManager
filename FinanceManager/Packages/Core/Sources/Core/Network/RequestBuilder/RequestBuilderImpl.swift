@@ -9,9 +9,11 @@ import Foundation
 
 public final class RequestBuilderImpl: RequestBuilder {
     private let baseURL: URL
+    private let keychainStorage: KeychainStorage
     
-    public init(baseURL: URL) {
+    public init(baseURL: URL, keychainStorage: KeychainStorage) {
         self.baseURL = baseURL
+        self.keychainStorage = keychainStorage
     }
     
     public func build(for endpoint: any Endpoint) throws -> URLRequest {
@@ -29,6 +31,10 @@ public final class RequestBuilderImpl: RequestBuilder {
         }
         
         var request = URLRequest(url: url)
+        
+        if let token: String = try? keychainStorage.get(for: .accessToken) {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
         
         request.httpMethod = endpoint.method.rawValue
         
