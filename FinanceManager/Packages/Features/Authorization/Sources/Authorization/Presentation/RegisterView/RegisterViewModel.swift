@@ -40,10 +40,16 @@ public final class RegisterViewModel {
         let credentials = RegisterUserCredentials(name: userName, password: password)
         let session = try await authRepository.register(user: credentials)
         try saveSession(session)
+        try saveRegisteredUser(RegisterUserCredentials(name: userName, password: password))
     }
     
     private func saveSession(_ session: AuthSession) throws {
         try keyChainStorage.save(session.accessToken.value, for: .accessToken)
         try keyChainStorage.save(session.refreshToken.value, for: .refreshToken)
+    }
+    
+    private func saveRegisteredUser(_ user: RegisterUserCredentials) throws {
+        let dto = AuthUserDTO(name: user.name.value, password: user.password.value)
+        try keyChainStorage.save(dto, for: .registerUserCredentials)
     }
 }

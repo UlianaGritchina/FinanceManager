@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E5A076A30175917003203F8 /* ProfileDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0E5A076930175917003203F8 /* ProfileDomain */; };
 		0E6D71B430121B8900521F65 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D71B330121B8900521F65 /* Swinject */; };
 		0E6D72403012819500521F65 /* Authorization in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D723F3012819500521F65 /* Authorization */; };
 		0E6D72423012819800521F65 /* AuthorizationData in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72413012819800521F65 /* AuthorizationData */; };
 		0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72433012819D00521F65 /* AuthorizationDomain */; };
-		0E7A38EF3016795600B9D005 /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E7A38EE3016795600B9D005 /* Profile */; };
-		0E7A38F13016795B00B9D005 /* ProfileData in Frameworks */ = {isa = PBXBuildFile; productRef = 0E7A38F03016795B00B9D005 /* ProfileData */; };
+		0EA6729A301A33A900391702 /* Account in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA67299301A33A900391702 /* Account */; };
+		0EA6729C301A33AC00391702 /* AccountData in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA6729B301A33AC00391702 /* AccountData */; };
+		0EA6729E301A33AF00391702 /* AccountDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA6729D301A33AF00391702 /* AccountDomain */; };
 		0EC181413010E860005B9337 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181403010E860005B9337 /* Core */; };
 /* End PBXBuildFile section */
 
@@ -45,9 +45,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Packages/Core,
-				Packages/Features/Profile,
-				Packages/ProfileData,
-				Packages/ProfileDomain,
 				Resources/Info.plist,
 			);
 			target = 0E3345DF300F7DEE0032FFD1 /* FinanceManager */;
@@ -80,13 +77,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E7A38F13016795B00B9D005 /* ProfileData in Frameworks */,
-				0E7A38EF3016795600B9D005 /* Profile in Frameworks */,
 				0E6D72443012819D00521F65 /* AuthorizationDomain in Frameworks */,
+				0EA6729E301A33AF00391702 /* AccountDomain in Frameworks */,
 				0E6D72423012819800521F65 /* AuthorizationData in Frameworks */,
 				0E6D71B430121B8900521F65 /* Swinject in Frameworks */,
+				0EA6729A301A33A900391702 /* Account in Frameworks */,
 				0E6D72403012819500521F65 /* Authorization in Frameworks */,
-				0E5A076A30175917003203F8 /* ProfileDomain in Frameworks */,
+				0EA6729C301A33AC00391702 /* AccountData in Frameworks */,
 				0EC181413010E860005B9337 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,9 +158,9 @@
 				0E6D723F3012819500521F65 /* Authorization */,
 				0E6D72413012819800521F65 /* AuthorizationData */,
 				0E6D72433012819D00521F65 /* AuthorizationDomain */,
-				0E7A38EE3016795600B9D005 /* Profile */,
-				0E7A38F03016795B00B9D005 /* ProfileData */,
-				0E5A076930175917003203F8 /* ProfileDomain */,
+				0EA67299301A33A900391702 /* Account */,
+				0EA6729B301A33AC00391702 /* AccountData */,
+				0EA6729D301A33AF00391702 /* AccountDomain */,
 			);
 			productName = FinanceManager;
 			productReference = 0E3345E0300F7DEE0032FFD1 /* FinanceManager.app */;
@@ -660,10 +657,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0E5A076930175917003203F8 /* ProfileDomain */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ProfileDomain;
-		};
 		0E6D71B330121B8900521F65 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0E6D71B230121B6A00521F65 /* XCRemoteSwiftPackageReference "Swinject" */;
@@ -681,13 +674,17 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AuthorizationDomain;
 		};
-		0E7A38EE3016795600B9D005 /* Profile */ = {
+		0EA67299301A33A900391702 /* Account */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Profile;
+			productName = Account;
 		};
-		0E7A38F03016795B00B9D005 /* ProfileData */ = {
+		0EA6729B301A33AC00391702 /* AccountData */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ProfileData;
+			productName = AccountData;
+		};
+		0EA6729D301A33AF00391702 /* AccountDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AccountDomain;
 		};
 		0EC181403010E860005B9337 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;

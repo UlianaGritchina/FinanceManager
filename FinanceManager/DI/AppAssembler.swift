@@ -8,7 +8,7 @@
 import Authorization
 import Core
 import Foundation
-import Profile
+import Account
 import Swinject
 
 enum AppAssembler {
@@ -16,7 +16,7 @@ enum AppAssembler {
         CoreAssembly(),
         AuthAssembly(),
         RootAssembly(),
-        ProfileAssembly(),
+        AccountAssembly(),
     ])
 }
 
