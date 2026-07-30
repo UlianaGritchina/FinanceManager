@@ -14,7 +14,9 @@ struct FinanceManagerApp: App {
     let appAssembly = AppAssembler.shared
     var body: some Scene {
         WindowGroup {
-            RootView(viewModel: appAssembly.resolver.resolve(RootViewModel.self)!)
+            RegisterView(
+                viewModel: appAssembly.resolver.resolve(RegisterViewModel.self)!
+            )
         }
     }
 }
