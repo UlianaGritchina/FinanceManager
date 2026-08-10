@@ -22,11 +22,20 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
+      - name: List available simulators
+        run: xcrun simctl list devices available
+        
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Show available destinations
+        run: xcodebuild -scheme FinanceManager -showdestinations
+  
       - name: Build and test
         run: |
           xcodebuild \
             -project FinanceManager.xcodeproj \
             -scheme FinanceManager \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+            -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
             test
