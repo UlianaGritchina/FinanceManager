@@ -8,7 +8,7 @@
 import Core
 import Foundation
 
-public final class AuthApiImpl: AuthAPI {
+public final class AuthApiImpl: AuthAPI, Sendable {
     private let networkClient: NetworkClient
     
     public init(networkClient: NetworkClient) {

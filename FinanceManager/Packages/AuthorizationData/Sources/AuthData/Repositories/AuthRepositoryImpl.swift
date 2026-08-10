@@ -8,7 +8,7 @@
 import AuthorizationDomain
 import Foundation
 
-public final class AuthRepositoryImpl: AuthRepository {
+public final class AuthRepositoryImpl: AuthRepository, Sendable {
     private let authAPI: AuthAPI
     
     public init(authAPI: AuthAPI) {

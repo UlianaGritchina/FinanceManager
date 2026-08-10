@@ -15,7 +15,7 @@ enum AppAssembler {
     static let shared = Assembler([
         CoreAssembly(),
         AuthAssembly(),
-        RootAssembly(),
+        RegisterAssembly(),
         AccountAssembly(),
     ])
 }

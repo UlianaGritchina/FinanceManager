@@ -28,7 +28,9 @@ struct RegisterView: View {
                         .padding()
                     
                     Button(action: {
-                        viewModel.createAccountButtonTapped()
+                        Task {
+                            await viewModel.createAccountButtonTapped()
+                        }
                     }) {
                         Text("Create")
                     }

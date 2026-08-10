@@ -31,16 +31,7 @@ extension AccountInfoDTO {
             userName: name,
             balance: balance,
             currencyId: currencyId,
-            status: statusToDomain(status)
+            status: AccountStatus(status)
         )
-    }
-    
-    private func statusToDomain(_ status: String) -> AccountStatus {
-        switch status.lowercased() {
-        case "active":
-            return .active
-        default:
-            return .unknown
-        }
     }
 }

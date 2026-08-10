@@ -10,4 +10,13 @@ import Foundation
 public enum AccountStatus {
     case active
     case unknown
+    
+    public init(_ status: String) {
+        switch status {
+        case "active":
+            self = .active
+        default:
+            self = .unknown
+        }
+    }
 }
