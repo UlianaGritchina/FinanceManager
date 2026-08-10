@@ -1,0 +1,78 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: macos-latest
+
+    steps:
+      # --------------------------------------------------
+      # Checkout
+      # --------------------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      # --------------------------------------------------
+      # Xcode / macOS information
+      # --------------------------------------------------
+      - name: Show environment
+        run: |
+          echo "=== macOS ==="
+          sw_vers
+
+          echo ""
+          echo "=== Xcode path ==="
+          xcode-select -p
+
+          echo ""
+          echo "=== Xcode version ==="
+          xcodebuild -version
+
+          echo ""
+          echo "=== Available SDKs ==="
+          xcodebuild -showsdks
+
+      # --------------------------------------------------
+      # Simulator information
+      # --------------------------------------------------
+      - name: List available runtimes
+        run: |
+          echo "=== Available runtimes ==="
+          xcrun simctl list runtimes
+
+      - name: List available simulators
+        run: |
+          echo "=== Available simulators ==="
+          xcrun simctl list devices available
+
+      # --------------------------------------------------
+      # Xcode destinations
+      # --------------------------------------------------
+      - name: Show available destinations
+        run: |
+          xcodebuild \
+            -project FinanceManager.xcodeproj \
+            -scheme FinanceManager \
+            -showdestinations
+
+      # --------------------------------------------------
+      # Run tests
+      # --------------------------------------------------
+      - name: Build and test
+        run: |
+          xcodebuild \
+            -project FinanceManager.xcodeproj \
+            -scheme FinanceManager \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.2' \
+            test

@@ -24,16 +24,15 @@ public final class RegisterViewModel {
     }
     
     @MainActor
-    func createAccountButtonTapped() {
-        Task {
-            do {
-                try await createAccount()
-            } catch {
-                print(error)
-            }
+    func createAccountButtonTapped() async {
+        do {
+            try await createAccount()
+        } catch {
+            print(error)
         }
     }
     
+    @MainActor
     private func createAccount() async throws {
         let userName = try UserName(email)
         let password = try Password(password)
