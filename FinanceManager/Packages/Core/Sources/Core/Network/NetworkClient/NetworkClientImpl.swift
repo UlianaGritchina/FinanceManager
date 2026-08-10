@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class NetworkClientImpl: NetworkClient {
+public final class NetworkClientImpl: NetworkClient, Sendable {
     private let baseURL: URL
     private let session: URLSession
     private let requestBuilder: RequestBuilder
