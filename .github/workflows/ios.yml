@@ -13,29 +13,66 @@ on:
 
 jobs:
   build-and-test:
+    name: Build & Test
     runs-on: macos-latest
 
     steps:
+      # --------------------------------------------------
+      # Checkout
+      # --------------------------------------------------
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Show Xcode version
-        run: xcodebuild -version
+      # --------------------------------------------------
+      # Xcode / macOS information
+      # --------------------------------------------------
+      - name: Show environment
+        run: |
+          echo "=== macOS ==="
+          sw_vers
+
+          echo ""
+          echo "=== Xcode path ==="
+          xcode-select -p
+
+          echo ""
+          echo "=== Xcode version ==="
+          xcodebuild -version
+
+          echo ""
+          echo "=== Available SDKs ==="
+          xcodebuild -showsdks
+
+      # --------------------------------------------------
+      # Simulator information
+      # --------------------------------------------------
+      - name: List available runtimes
+        run: |
+          echo "=== Available runtimes ==="
+          xcrun simctl list runtimes
 
       - name: List available simulators
-        run: xcrun simctl list devices available
-        
-      - name: Show Xcode version
-        run: xcodebuild -version
+        run: |
+          echo "=== Available simulators ==="
+          xcrun simctl list devices available
 
+      # --------------------------------------------------
+      # Xcode destinations
+      # --------------------------------------------------
       - name: Show available destinations
-        run: xcodebuild -scheme FinanceManager -showdestinations
-  
+        run: |
+          xcodebuild \
+            -project FinanceManager.xcodeproj \
+            -scheme FinanceManager \
+            -showdestinations
+
+      # --------------------------------------------------
+      # Run tests
+      # --------------------------------------------------
       - name: Build and test
         run: |
           xcodebuild \
             -project FinanceManager.xcodeproj \
             -scheme FinanceManager \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.2' \
             test
