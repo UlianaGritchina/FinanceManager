@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AccountInfo {
+public struct Account {
     public let id: String
     public let createdAt: Date
     public let updatedAt: Date

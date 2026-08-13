@@ -21,7 +21,7 @@ final class RegisterViewModel {
     
     var email: String = ""
     var password: String = ""
-    var accountInfo: AccountInfo?
+    var accountInfo: Account?
     
     init(
         keychainStorage: KeychainStorage,
@@ -92,7 +92,7 @@ final class RegisterViewModel {
             balance: 0,
             currencyId: "d67bdffe-9f2d-45e4-809a-c566f537dfb7"
         )
-        let account = try await accountRepository.createAccount(user: user)
+        let _ = try await accountRepository.createAccount(user: user)
     }
     
     private func delete() async throws {

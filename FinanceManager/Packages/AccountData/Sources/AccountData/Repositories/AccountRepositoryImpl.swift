@@ -16,7 +16,7 @@ public final class AccountRepositoryImpl: AccountRepository {
         self.accountAPI = accountAPI
     }
     
-    public func createAccount(user: UserInfo) async throws -> AccountInfo {
+    public func createAccount(user: UserInfo) async throws -> Account {
         let userDTO = getUserDTO(user)
         
         let accountInfoDTO = try await accountAPI.createAccount(user: userDTO)
@@ -35,7 +35,7 @@ public final class AccountRepositoryImpl: AccountRepository {
         try await accountAPI.updateAccount(id: user.id, with: accountUpdateDTO)
     }
     
-    public func getAccount(by id: String) async throws -> AccountInfo {
+    public func getAccount(by id: String) async throws -> Account {
         let accountDTO = try await accountAPI.getAccount(id: id)
         return accountDTO.toDomain()
     }

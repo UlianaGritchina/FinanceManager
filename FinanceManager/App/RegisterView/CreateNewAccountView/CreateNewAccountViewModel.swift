@@ -28,7 +28,7 @@ final class CreateNewAccountViewModel {
     
     var email = ""
     var password = ""
-    var account: AccountInfo?
+    var account: Account?
     
     func createAccountButtonTapped() {
         Task {

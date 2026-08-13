@@ -8,8 +8,8 @@
 import Foundation
 
 public protocol AccountRepository {
-    func createAccount(user: UserInfo) async throws -> AccountInfo
+    func createAccount(user: UserInfo) async throws -> Account
     func updateAccount(user: UserInfo) async throws
-    func getAccount(by id: String) async throws -> AccountInfo
+    func getAccount(by id: String) async throws -> Account
     func delete(id: String) async throws
 }
