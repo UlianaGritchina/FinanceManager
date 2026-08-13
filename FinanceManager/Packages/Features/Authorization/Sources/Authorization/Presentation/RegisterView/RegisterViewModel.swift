@@ -33,6 +33,15 @@ public final class RegisterViewModel {
     }
     
     @MainActor
+    func deleteAccount() async {
+        do {
+            try await authRepository.delete()
+        } catch {
+            print(error)
+        }
+    }
+    
+    @MainActor
     private func createAccount() async throws {
         let userName = try UserName(email)
         let password = try Password(password)

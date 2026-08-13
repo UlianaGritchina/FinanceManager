@@ -11,6 +11,7 @@ import Foundation
 enum AccountEndpoint {
     case createAccount(UserDTO)
     case updateAccount(String, AccountUpdateDTO)
+    case getAccount(String)
     case delete(String)
 }
 
@@ -21,7 +22,7 @@ extension AccountEndpoint: Endpoint {
             "api/v1/account"
         case .updateAccount(let id, _):
             "api/v1/account/\(id)"
-        case .delete(let id):
+        case .getAccount(let id), .delete(let id):
             "api/v1/account/\(id)"
         }
     }
@@ -30,6 +31,7 @@ extension AccountEndpoint: Endpoint {
         switch self {
         case .createAccount: .post
         case .updateAccount: .put
+        case .getAccount: .get
         case .delete: .delete
         }
     }
@@ -38,7 +40,7 @@ extension AccountEndpoint: Endpoint {
         switch self {
         case .createAccount, .updateAccount:
             ["Content-Type": "application/json"]
-        case .delete:
+        case .getAccount, .delete:
             [:]
         }
     }
@@ -53,7 +55,7 @@ extension AccountEndpoint: Endpoint {
             try? JSONEncoder().encode(userDTO)
         case .updateAccount(_, let accountUpdateDTO):
             try? JSONEncoder().encode(accountUpdateDTO)
-        case .delete:
+        case .getAccount, .delete:
             nil
         }
     }

@@ -9,6 +9,7 @@ import AccountDomain
 import Foundation
 
 public final class AccountRepositoryImpl: AccountRepository {
+    
     private let accountAPI: AccountAPI
     
     public init(accountAPI: AccountAPI) {
@@ -32,6 +33,11 @@ public final class AccountRepositoryImpl: AccountRepository {
         )
         
         try await accountAPI.updateAccount(id: user.id, with: accountUpdateDTO)
+    }
+    
+    public func getAccount(by id: String) async throws -> AccountInfo {
+        let accountDTO = try await accountAPI.getAccount(id: id)
+        return accountDTO.toDomain()
     }
     
     public func delete(id: String) async throws {

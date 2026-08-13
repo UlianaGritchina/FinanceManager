@@ -6,6 +6,7 @@
 //
 
 import Authorization
+import AccountDomain
 import Swinject
 import SwiftUI
 import Account
@@ -24,22 +25,37 @@ struct RegisterView: View {
                 VStack {
                     Text("Finance Manager")
                     
-                    TextField("email", text: $vm.email)
-                    TextField("password", text: $vm.password)
-                    
-                    Button("Login") {
+                    if let account = viewModel.accountInfo {
+                        Text("\(account.userName): \(account.balance)")
+                        Button("Delete") {
+                            Task {
+                                await viewModel.deleteButtonTapped()
+                            }
+                        }
+                    } else {
                         
-                    }
-                    
-                    NavigationLink {
-                        CreateNewAccountView(
-                            viewModel: viewModel.createAccountViewModel
-                        )
-                    } label: {
-                        Text("Register")
+                        TextField("email", text: $vm.email)
+                        TextField("password", text: $vm.password)
+                        
+                        Button("Login") {
+                            Task {
+                                await viewModel.loginButtonTapped()
+                            }
+                        }
+                        
+                        NavigationLink {
+                            CreateNewAccountView(
+                                viewModel: viewModel.createAccountViewModel
+                            )
+                        } label: {
+                            Text("Register")
+                        }
                     }
                 }
                 .padding()
+            }
+            .task {
+//                await viewModel.getAccountInfo()
             }
         }
     }

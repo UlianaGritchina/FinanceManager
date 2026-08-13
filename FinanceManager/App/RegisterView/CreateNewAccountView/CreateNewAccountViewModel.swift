@@ -49,7 +49,6 @@ final class CreateNewAccountViewModel {
         let session = try await authRepository.register(user: credentials)
         try keychainStorage.save(session.accessToken.value, for: .accessToken)
         try keychainStorage.save(session.refreshToken.value, for: .refreshToken)
-        print(session)
     }
     
     private func createNewAccount() async throws {
@@ -57,9 +56,10 @@ final class CreateNewAccountViewModel {
             id: UUID().uuidString.lowercased(),
             name: email,
             balance: 0,
-            currencyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            currencyId: "d67bdffe-9f2d-45e4-809a-c566f537dfb7"
         )
         let accountInfo = try await accountRepository.createAccount(user: userInfo)
         self.account = accountInfo
+        try keychainStorage.save(accountInfo.id, for: .userID)
     }
 }
