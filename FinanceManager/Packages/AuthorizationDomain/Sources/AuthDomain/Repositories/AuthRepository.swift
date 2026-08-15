@@ -10,5 +10,6 @@ import Foundation
 public protocol AuthRepository: Sendable {
     func register(user: RegisterUserCredentials) async throws -> AuthSession
     func login(user: RegisterUserCredentials) async throws -> AuthSession
+    func refreshSession(refreshToken: String) async throws -> AuthSession
     func delete() async throws
 }

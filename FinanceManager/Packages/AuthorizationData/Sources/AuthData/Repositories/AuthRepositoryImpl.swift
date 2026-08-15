@@ -37,6 +37,12 @@ public final class AuthRepositoryImpl: AuthRepository, Sendable {
         return try authTokenResponse.toDomain()
     }
     
+    public func refreshSession(refreshToken: String) async throws -> AuthorizationDomain.AuthSession {
+        let refreshTokenDTO = RefreshTokenDTO(refreshToken: refreshToken)
+        let sessionDTO = try await authAPI.refreshUser(refreshToken: refreshTokenDTO)
+        return try sessionDTO.toDomain()
+    }
+    
     public func delete() async throws {
         try await authAPI.deleteUser()
     }
