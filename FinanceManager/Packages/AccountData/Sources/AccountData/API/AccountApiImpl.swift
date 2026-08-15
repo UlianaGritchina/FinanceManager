@@ -25,6 +25,10 @@ public final class AccountApiImpl: AccountAPI {
         try await networkClient.request(endpoint)
     }
     
+    public func getAccount(id: String) async throws -> AccountInfoDTO {
+        try await networkClient.request(AccountEndpoint.getAccount(id))
+    }
+    
     public func delete(id: String) async throws {
         try await networkClient.request(AccountEndpoint.delete(id))
     }

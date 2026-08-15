@@ -26,16 +26,5 @@ public final class AuthAssembly: Assembly {
                 authAPI: resolver.resolve(AuthAPI.self)!
             )
         }
-        
-        container.register(RegisterViewModel.self) { resolver in
-            RegisterViewModel(
-                authRepository: resolver.resolve(AuthRepository.self)!,
-                keyChainStorage: resolver.resolve(KeychainStorage.self)!
-            )
-        }
-        
-        container.register(AuthFactory.self) { resolver in
-            AuthFactoryImpl(resolver: resolver)
-        }
     }
 }

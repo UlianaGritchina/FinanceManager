@@ -20,10 +20,10 @@ public struct AccountInfoDTO: Decodable {
 }
 
 extension AccountInfoDTO {
-    func toDomain() -> AccountInfo {
+    func toDomain() -> Account {
         let iso8601Formatter = ISO8601DateFormatter()
 
-        return AccountInfo(
+        return Account(
             id: id,
             createdAt: iso8601Formatter.date(from: createdAt) ?? .distantPast,
             updatedAt: iso8601Formatter.date(from: updatedAt) ?? .distantPast,

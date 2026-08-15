@@ -5,17 +5,18 @@
 //  Created by Ульяна Гритчина on 21.07.2026.
 //
 
+import AppDI
 import Authorization
 import SwiftUI
 import Swinject
+import RootView
 
 @main
 struct FinanceManagerApp: App {
-    let appAssembly = AppAssembler.shared
     var body: some Scene {
         WindowGroup {
-            RegisterView(
-                viewModel: appAssembly.resolver.resolve(RegisterViewModel.self)!
+            RootView(
+                viewModel: AppAssembler.shared.resolver.resolve(RootViewModel.self)!
             )
         }
     }
