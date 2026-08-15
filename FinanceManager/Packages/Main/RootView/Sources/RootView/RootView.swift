@@ -8,30 +8,31 @@
 import AppSession
 import SwiftUI
 import Swinject
+import WelcomeView
 
-struct RootView: View {
+public struct RootView: View {
     @State private var viewModel: RootViewModel
     
-    init(viewModel: RootViewModel) {
+    public init(viewModel: RootViewModel) {
         self.viewModel = viewModel
     }
     
-    var body: some View {
-        Group {
-            switch viewModel.sessionManager.state {
+    public var body: some View {
+        VStack {
+            switch viewModel.sessionState {
             case .loading:
                 Text("loading")
                 
             case .authorised:
                 VStack {
                     Text("authorised")
-                    RegisterView(viewModel: AppAssembler.shared.resolver.resolve(RegisterViewModel.self)!)
+                    WelcomeView(viewModel: viewModel.welcomeViewModel)
                 }
             case .needsAccount:
                 Text("needsAccount")
                 
             case .unauthorised:
-                RegisterView(viewModel: AppAssembler.shared.resolver.resolve(RegisterViewModel.self)!)
+                WelcomeView(viewModel: viewModel.welcomeViewModel)
             }
         }
         .task {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol AccountRepository {
+public protocol AccountRepository: Sendable {
     func createAccount(user: UserInfo) async throws -> Account
     func updateAccount(user: UserInfo) async throws
     func getAccount(by id: String) async throws -> Account

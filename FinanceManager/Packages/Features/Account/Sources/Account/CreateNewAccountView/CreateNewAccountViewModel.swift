@@ -11,12 +11,12 @@ import Core
 import Foundation
 
 @Observable
-final class CreateNewAccountViewModel {
+public final class CreateNewAccountViewModel {
     private let keychainStorage: KeychainStorage
     private let authRepository: AuthRepository
     private let accountRepository: AccountRepository
     
-    init(
+    public init(
         keychainStorage: KeychainStorage,
         authRepository: AuthRepository,
         accountRepository: AccountRepository
@@ -30,6 +30,7 @@ final class CreateNewAccountViewModel {
     var password = ""
     var account: Account?
     
+    @MainActor
     func createAccountButtonTapped() {
         Task {
             do {

@@ -12,7 +12,7 @@ import Foundation
 import Account
 
 @Observable
-final class RegisterViewModel {
+public final class WelcomeViewModel {
     private let keychainStorage: KeychainStorage
     private let authRepository: AuthRepository
     private let accountRepository: AccountRepository
@@ -23,7 +23,7 @@ final class RegisterViewModel {
     var password: String = ""
     var accountInfo: Account?
     
-    init(
+    public init(
         keychainStorage: KeychainStorage,
         authRepository: AuthRepository,
         accountRepository: AccountRepository,
@@ -62,6 +62,7 @@ final class RegisterViewModel {
         }
     }
    
+    @MainActor
     private func login() async throws {
         let userName = try UserName(email)
         let password = try Password(password)
@@ -75,6 +76,7 @@ final class RegisterViewModel {
         await getAccountInfo()
     }
     
+    @MainActor
     func getAccountInfo() async {
         do {
             let userId: String = try keychainStorage.get(for: .userID)
@@ -85,6 +87,7 @@ final class RegisterViewModel {
         }
     }
     
+    @MainActor
     private func createUserAccount() async throws {
         let user = UserInfo(
             id: UUID().uuidString,
@@ -95,6 +98,7 @@ final class RegisterViewModel {
         let _ = try await accountRepository.createAccount(user: user)
     }
     
+    @MainActor
     private func delete() async throws {
         let userId: String = try keychainStorage.get(for: .userID)
         try await accountRepository.delete(id: userId)

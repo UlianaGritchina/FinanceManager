@@ -11,13 +11,16 @@ import Core
 import Foundation
 import Account
 import Swinject
+import RootView
+import WelcomeView
 
-enum AppAssembler {
-    static let shared = Assembler([
+@MainActor
+public enum AppAssembler {
+    static public let shared = Assembler([
         RootAssembly(),
         CoreAssembly(),
         AuthAssembly(),
-        RegisterAssembly(),
+        WelcomeViewAssembly(),
         AccountAssembly(),
         SessionAssembly()
     ])

@@ -8,14 +8,14 @@
 import AccountDomain
 import SwiftUI
 
-struct CreateNewAccountView: View {
+public struct CreateNewAccountView: View {
     @State private var viewModel: CreateNewAccountViewModel
     
-    init(viewModel: CreateNewAccountViewModel) {
+    public init(viewModel: CreateNewAccountViewModel) {
         self.viewModel = viewModel
     }
     
-    var body: some View {
+    public var body: some View {
         @Bindable var vm = viewModel
         NavigationView {
             ScrollView {

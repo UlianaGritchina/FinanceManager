@@ -11,14 +11,14 @@ import Swinject
 import SwiftUI
 import Account
 
-struct RegisterView: View {
-    @State private var viewModel: RegisterViewModel
+public struct WelcomeView: View {
+    @State private var viewModel: WelcomeViewModel
     
-    init(viewModel: RegisterViewModel) {
+    public init(viewModel: WelcomeViewModel) {
         self.viewModel = viewModel
     }
     
-    var body: some View {
+    public var body: some View {
         @Bindable var vm = viewModel
         NavigationView {
             ScrollView {
@@ -55,7 +55,7 @@ struct RegisterView: View {
                 .padding()
             }
             .task {
-//                await viewModel.getAccountInfo()
+                await viewModel.getAccountInfo()
             }
         }
     }

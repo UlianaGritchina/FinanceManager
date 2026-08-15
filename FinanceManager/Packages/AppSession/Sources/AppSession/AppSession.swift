@@ -3,9 +3,8 @@ import AuthorizationDomain
 import Core
 import SwiftUI
 
-@Observable
-final public class SessionManager {
-    public enum State {
+final public actor SessionManager {
+    public enum State: Sendable {
         case loading
         case unauthorised
         case needsAccount
