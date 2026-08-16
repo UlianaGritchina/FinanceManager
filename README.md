@@ -1,6 +1,6 @@
 ## Finance Manager
 
-#🚧 [Work in progress] 🚧
+##🚧 [Work in progress] 🚧
 
 An iOS application for managing personal finances, including **income, expenses, accounts, categories, transaction history, synchronization, and basic analytics**. [Читать на русском.](README.ru.md)
 
