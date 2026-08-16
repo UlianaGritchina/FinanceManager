@@ -6,10 +6,9 @@
 //
 
 import AppDI
-import Authorization
+import RootView
 import SwiftUI
 import Swinject
-import RootView
 
 @main
 struct FinanceManagerApp: App {
