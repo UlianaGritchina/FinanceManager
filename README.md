@@ -8,8 +8,7 @@ The project is designed as a **pet project** that demonstrates thoughtful archit
 
 - **iOS 17+, SwiftUI**
 - **Modular Clean Architecture (SPM), MVVM**
-- **Swift Concurrency**
-- **SwiftData for local data persistence**
+- **Swift Concurrency, SwiftData**
 - **Data synchronization**
 - **Local-First**
 - **Financial analytics and insights**
