@@ -1,25 +1,25 @@
 ## Finance Manager
 
-An iOS application for managing personal finances, including **income, expenses, accounts, categories, transaction history, synchronization, and basic analytics**. [Read in English](README.md)
+iOS-приложение для управления личными финансами: **доходы, расходы, счета, категории, история операций, синхронизация и аналитика**. [Read in English.](README.md)
 
-A **team pet project** built to showcase modern mobile development practices, thoughtful architecture, and collaboration across iOS, Android, backend, and design.
+**Командный pet-project**, созданный для демонстрации современных подходов к мобильной разработке, продуманной архитектуры и взаимодействия между iOS, Android, backend и дизайном.
 
-### Team
+### Команда
 
-| Role | Responsibility | Project |
+| Роль | Зона ответственности | Проект |
 |---|---|---|
-| **iOS Developer** | iOS application development and architecture | **This repository** |
-| **Android Developer** | Android application development | [Android →](https://github.com/IliaVoskoboinikov/Finance-Manager) |
-| **Backend Developer** | API, data synchronization, and backend infrastructure | [Backend →](https://github.com/chernykh-dev/finance-manager-backend) |
-| **2 Designers** | UI/UX and visual design |  |
+| **iOS Developer** | Разработка iOS-приложения и архитектуры | **Этот репозиторий** |
+| **Android Developer** | Разработка Android-приложения | [Android →](https://github.com/IliaVoskoboinikov/Finance-Manager) |
+| **Backend Developer** | API, синхронизация данных и backend-инфраструктура | [Backend →](https://github.com/chernykh-dev/finance-manager-backend) |
+| **2 Designers** | UI/UX и визуальный дизайн | — |
 
-### Tech Stack & Architecture
+### Технологии и архитектура
 
 - **iOS 17+, SwiftUI**
-- **Modular Clean Architecture (SPM), MVVM**
+- **Модульная Clean Architecture (SPM), MVVM**
 - **Swift Concurrency, SwiftData**
-- **Data synchronization**
+- **Синхронизация данных**
 - **Local-First**
-- **Financial analytics and insights**
+- **Финансовая аналитика**
 
-The main goal of the project is to demonstrate how to build a **scalable, maintainable, and production-oriented iOS application** using modern Apple technologies, while working as part of a cross-functional development team.
+Основная цель проекта - продемонстрировать, как создавать **масштабируемые, поддерживаемые и production-oriented iOS-приложения** с использованием современных технологий Apple, работая в составе кросс-функциональной команды.
