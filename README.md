@@ -1,6 +1,6 @@
 ## Finance Manager
 
-An iOS application for managing personal finances, including **income, expenses, accounts, categories, transaction history, synchronization, and basic analytics**.
+An iOS application for managing personal finances, including **income, expenses, accounts, categories, transaction history, synchronization, and basic analytics**. [Читать на русском.](https://github.com/UlianaGritchina/FinanceManager/blob/main/README.ru.md$0)
 
 A **team pet project** built to showcase modern mobile development practices, thoughtful architecture, and collaboration across iOS, Android, backend, and design.
 
