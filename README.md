@@ -18,6 +18,7 @@ A **team pet project** built to showcase modern mobile development practices, th
 - **iOS 17+, SwiftUI**
 - **Modular Clean Architecture (SPM), MVVM**
 - **Swift Concurrency, SwiftData**
+- **CI/CD**
 - **Data synchronization**
 - **Local-First**
 - **Financial analytics and insights**
