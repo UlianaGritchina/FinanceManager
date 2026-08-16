@@ -6,10 +6,10 @@ A **team pet project** built to showcase modern mobile development practices, th
 
 ### Team
 
-- **iOS Developer** — iOS application development and architecture
-- **Android Developer** — Android application development
-- **Backend Developer** — API, data synchronization, and backend infrastructure
-- **2 Designers** — UI/UX and visual design
+- **iOS Developer** - iOS application development and architecture
+- **Android Developer** - Android application development
+- **Backend Developer** - API, data synchronization, and backend infrastructure
+- **2 Designers** - UI/UX and visual design
 
 ### Tech Stack & Architecture
 
