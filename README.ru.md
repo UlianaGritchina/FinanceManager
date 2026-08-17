@@ -18,6 +18,7 @@ iOS-приложение для управления личными финанс
 - **iOS 17+, SwiftUI**
 - **Модульная Clean Architecture (SPM), MVVM**
 - **Swift Concurrency, SwiftData**
+- - **CI/CD**
 - **Синхронизация данных**
 - **Local-First**
 - **Финансовая аналитика**

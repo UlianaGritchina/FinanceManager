@@ -1,5 +1,7 @@
 ## Finance Manager
 
+🚧 [Work in progress] 🚧
+
 An iOS application for managing personal finances, including **income, expenses, accounts, categories, transaction history, synchronization, and basic analytics**. [Читать на русском.](README.ru.md)
 
 A **team pet project** built to showcase modern mobile development practices, thoughtful architecture, and collaboration across iOS, Android, backend, and design.
@@ -18,6 +20,7 @@ A **team pet project** built to showcase modern mobile development practices, th
 - **iOS 17+, SwiftUI**
 - **Modular Clean Architecture (SPM), MVVM**
 - **Swift Concurrency, SwiftData**
+- **CI/CD**
 - **Data synchronization**
 - **Local-First**
 - **Financial analytics and insights**
