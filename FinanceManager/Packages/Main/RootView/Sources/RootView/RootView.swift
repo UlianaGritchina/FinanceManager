@@ -8,6 +8,7 @@
 import AppSession
 import SwiftUI
 import Swinject
+import Home
 import WelcomeView
 
 public struct RootView: View {
@@ -25,8 +26,7 @@ public struct RootView: View {
                 
             case .authorised:
                 VStack {
-                    Text("authorised")
-                    WelcomeView(viewModel: viewModel.welcomeViewModel)
+                    HomeView(viewModel: viewModel.homeViewModel)
                 }
             case .needsAccount:
                 Text("needsAccount")

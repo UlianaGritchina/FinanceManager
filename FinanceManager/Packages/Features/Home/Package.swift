@@ -4,27 +4,27 @@
 import PackageDescription
 
 let package = Package(
-    name: "MainTabView",
+    name: "Home",
     platforms: [ .iOS(.v17) ],
     products: [
         .library(
-            name: "MainTabView",
-            targets: ["MainTabView"]
+            name: "Home",
+            targets: ["Home"]
         ),
     ],
     dependencies: [
-        .package(path: "../Home")
+        .package(path: "../AppSession"),
     ],
     targets: [
         .target(
-            name: "MainTabView",
+            name: "Home",
             dependencies: [
-                .product(name: "Home", package: "Home")
+                .product(name: "AppSession", package: "AppSession"),
             ]
         ),
         .testTarget(
-            name: "MainTabViewTests",
-            dependencies: ["MainTabView"]
+            name: "HomeTests",
+            dependencies: ["Home"]
         ),
     ]
 )
