@@ -49,8 +49,8 @@
 		0E33460D300F8D9C0032FFD1 /* Exceptions for "FinanceManager" folder in "FinanceManager" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Packages/AppDI,
-				Packages/AppSession,
+				Packages/App/AppDI,
+				Packages/App/AppSession,
 				Packages/Core,
 				Packages/Main/MainTabView,
 				Packages/Main/RootView,
