@@ -10,6 +10,7 @@ import SwiftUI
 import Swinject
 import Home
 import WelcomeView
+import MainTabView
 
 public struct RootView: View {
     @State private var viewModel: RootViewModel
@@ -25,9 +26,8 @@ public struct RootView: View {
                 Text("loading")
                 
             case .authorised:
-                VStack {
-                    HomeView(viewModel: viewModel.homeViewModel)
-                }
+                MainTabView()
+            
             case .needsAccount:
                 Text("needsAccount")
                 

@@ -8,17 +8,19 @@
 import SwiftUI
 import Home
 
-struct MainTabView: View {
-    var body: some View {
+public struct MainTabView: View {
+    public init() { }
+    
+    public var body: some View {
         TabView {
-            EmptyView()
+            Text("Home")
                 .tabItem { Label("Home", systemImage: "house") }
             
-            EmptyView()
-                .tabItem { Label("Analitics", systemImage: "person.fill") }
+            Text("Analytics")
+                .tabItem { Label("Analytics", systemImage: "chart.pie.fill") }
             
-            EmptyView()
-                .tabItem { Label("Settings", systemImage: "person.fill") }
+            Text("Analytics")
+                .tabItem { Label("Settings", systemImage: "gear") }
         }
     }
 }
