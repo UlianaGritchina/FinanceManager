@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Account {
+public struct Account: Sendable {
     public let id: String
     public let createdAt: Date
     public let updatedAt: Date

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum AccountStatus {
+public enum AccountStatus: Sendable {
     case active
     case unknown
     

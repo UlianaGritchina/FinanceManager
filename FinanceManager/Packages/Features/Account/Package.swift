@@ -15,6 +15,7 @@ let package = Package(
     dependencies: [
         .package(path: "../AccountDomain"),
         .package(path: "../AccountData"),
+        .package(path: "../AuthorizationDomain"),
         .package(path: "../Core"),
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
     ],
@@ -24,6 +25,7 @@ let package = Package(
             dependencies: [
                 .product(name: "AccountDomain", package: "AccountDomain"),
                 .product(name: "AccountData", package: "AccountData"),
+                .product(name: "AuthorizationDomain", package: "AuthorizationDomain"),
                 .product(name: "Core", package: "Core"),
                 "Swinject",
             ]

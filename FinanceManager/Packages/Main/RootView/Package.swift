@@ -19,6 +19,7 @@ let package = Package(
         .package(path: "../AuthorizationDomain"),
         .package(path: "../Account"),
         .package(path: "../AccountDomain"),
+        .package(path: "../Home"),
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
     ],
     targets: [
@@ -31,6 +32,7 @@ let package = Package(
                 .product(name: "AuthorizationDomain", package: "AuthorizationDomain"),
                 .product(name: "Account", package: "Account"),
                 .product(name: "AccountDomain", package: "AccountDomain"),
+                .product(name: "Home", package: "Home"),
                 "Swinject"
             ]
         ),
