@@ -17,6 +17,13 @@ enum AuthEndpoint {
 }
 
 extension AuthEndpoint: Endpoint {
+    var access: Core.EndpointAccess {
+        switch self {
+        case .registerNewUser: .publicEndpoint
+        default: .authenticated
+        }
+    }
+    
     var path: String {
         switch self {
         case .registerNewUser:

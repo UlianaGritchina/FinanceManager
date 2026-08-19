@@ -10,6 +10,7 @@
 		0E24157A3030DE17008CF01E /* MainTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2415793030DE17008CF01E /* MainTabView */; };
 		0E24157D3030DE4F008CF01E /* RootView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E24157C3030DE4F008CF01E /* RootView */; };
 		0E32F22C3030EAA5000D72C0 /* AppDI in Frameworks */ = {isa = PBXBuildFile; productRef = 0E32F22B3030EAA5000D72C0 /* AppDI */; };
+		0E59873D30335CC00082F142 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 0E59873C30335CC00082F142 /* Home */; };
 		0E6D71B430121B8900521F65 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D71B330121B8900521F65 /* Swinject */; };
 		0E6D72403012819500521F65 /* Authorization in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D723F3012819500521F65 /* Authorization */; };
 		0E6D72423012819800521F65 /* AuthorizationData in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6D72413012819800521F65 /* AuthorizationData */; };
@@ -100,6 +101,7 @@
 				0EA6729C301A33AC00391702 /* AccountData in Frameworks */,
 				0E9494D43030F07000074F89 /* WelcomeView in Frameworks */,
 				0EC181413010E860005B9337 /* Core in Frameworks */,
+				0E59873D30335CC00082F142 /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +183,7 @@
 				0E24157C3030DE4F008CF01E /* RootView */,
 				0E32F22B3030EAA5000D72C0 /* AppDI */,
 				0E9494D33030F07000074F89 /* WelcomeView */,
+				0E59873C30335CC00082F142 /* Home */,
 			);
 			productName = FinanceManager;
 			productReference = 0E3345E0300F7DEE0032FFD1 /* FinanceManager.app */;
@@ -688,6 +691,10 @@
 		0E32F22B3030EAA5000D72C0 /* AppDI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppDI;
+		};
+		0E59873C30335CC00082F142 /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
 		};
 		0E6D71B330121B8900521F65 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;

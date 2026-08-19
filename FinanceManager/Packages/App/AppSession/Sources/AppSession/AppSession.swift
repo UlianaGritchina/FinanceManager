@@ -3,7 +3,7 @@ import AuthorizationDomain
 import Core
 import SwiftUI
 
-final public actor SessionManager {
+public actor SessionManager {
     public enum State: Sendable {
         case loading
         case unauthorised
@@ -12,6 +12,7 @@ final public actor SessionManager {
     }
     
     public private(set) var state: State = .loading
+    public private(set) var account: Account?
     
     private let authRepository: AuthRepository
     private let accountRepository: AccountRepository
@@ -89,7 +90,7 @@ final public actor SessionManager {
 
             try saveSession(session)
 
-            let _ = try await getAccountInfo()
+            account = try await getAccountInfo()
             state = .authorised
 
         } catch {

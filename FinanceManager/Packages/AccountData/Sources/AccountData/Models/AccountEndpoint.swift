@@ -16,6 +16,10 @@ enum AccountEndpoint {
 }
 
 extension AccountEndpoint: Endpoint {
+    var access: EndpointAccess {
+        .authenticated
+    }
+    
     var path: String {
         switch self {
         case .createAccount:

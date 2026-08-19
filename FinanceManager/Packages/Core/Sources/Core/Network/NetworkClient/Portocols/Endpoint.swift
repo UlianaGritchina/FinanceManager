@@ -13,4 +13,6 @@ public protocol Endpoint {
     var headers: HTTPHeaders { get }
     var queryItems: [URLQueryItem] { get }
     var body: Data? { get }
+    
+    var access: EndpointAccess { get }
 }
