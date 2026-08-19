@@ -62,9 +62,23 @@ private extension NetworkClientImpl {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.invalidResponse
         }
+        let statusCode = httpResponse.statusCode
         
-        guard 200...299 ~= httpResponse.statusCode else {
-            throw NetworkError.serverError(httpResponse.statusCode)
+        switch statusCode {
+        case 200...299:
+            return
+            
+        case 401:
+            throw NetworkError.unauthorised
+            
+        case 403:
+            throw NetworkError.forbidden
+            
+        case 404:
+            throw NetworkError.notFound
+            
+        default:
+            throw NetworkError.serverError(statusCode: statusCode, message: "")
         }
     }
 }
