@@ -14,17 +14,23 @@ public final class CoreAssembly: Assembly {
     
     public func assemble(container: Container) {
         container.register(RequestBuilder.self) { resolver in
-            RequestBuilderImpl(
-                baseURL: AppConfiguration.baseURL,
-                keychainStorage: resolver.resolve(KeychainStorage.self)!
-            )
+            RequestBuilderImpl(baseURL: AppConfiguration.baseURL)
         }
         .inObjectScope(.container)
+        
+        container.register(TokenStore.self) { resolver in
+            KeychainTokenStore(keychainStorage: resolver.resolve(KeychainStorage.self)!)
+        }
+        
+        container.register(AccessTokenProvider.self) { resolver in
+            AccessTokenProviderImpl(tokenStore: resolver.resolve(TokenStore.self)!)
+        }
         
         container.register(NetworkClient.self) { resolver in
             NetworkClientImpl(
                 baseURL: AppConfiguration.baseURL,
-                requestBuilder: resolver.resolve(RequestBuilder.self)!
+                requestBuilder: resolver.resolve(RequestBuilder.self)!,
+                tokenProvider: resolver.resolve(AccessTokenProvider.self)!
             )
         }
         .inObjectScope(.container)

@@ -1,6 +1,6 @@
 //
-//  NetworkClientProtocol.swift
-//  NasaApod
+//  NetworkClient.swift
+//  FinanceManager
 //
 //  Created by Ульяна Гритчина on 28.06.2026.
 //
