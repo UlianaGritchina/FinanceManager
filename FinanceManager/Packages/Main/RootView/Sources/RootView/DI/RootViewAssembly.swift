@@ -21,20 +21,8 @@ final public class RootAssembly: Assembly {
     
     public func assemble(container: Container) {
         container.register(RootViewModel.self) { resolver in
-            let keychain = resolver.resolve(KeychainStorage.self)!
-            let authRepository = resolver.resolve(AuthRepository.self)!
-            let accountRepository = resolver.resolve(AccountRepository.self)!
-            let createAccountViewModel = resolver.resolve(CreateNewAccountViewModel.self)!
-            let sessionManager = resolver.resolve(SessionManager.self)!
-            
-            let welcomeVM = WelcomeViewModel(
-                keychainStorage: keychain,
-                authRepository: authRepository,
-                accountRepository: accountRepository,
-                createAccountViewModel: createAccountViewModel
-            )
-            
-            let homeVM = HomeViewModel(sessionManager: sessionManager)
+            let welcomeVM = resolver.resolve(WelcomeViewModel.self)!
+            let homeVM = resolver.resolve(HomeViewModel.self)!
             
             return RootViewModel(
                 sessionManager: resolver.resolve(SessionManager.self)!,

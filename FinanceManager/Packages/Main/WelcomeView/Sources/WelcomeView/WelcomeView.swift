@@ -44,7 +44,7 @@ public struct WelcomeView: View {
                         }
                         
                         NavigationLink {
-                            CreateNewAccountView(
+                            CreateAccountView(
                                 viewModel: viewModel.createAccountViewModel
                             )
                         } label: {

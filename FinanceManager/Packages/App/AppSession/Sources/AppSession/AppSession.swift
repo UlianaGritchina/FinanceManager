@@ -51,7 +51,8 @@ public actor SessionManager {
     }
     
     public func getAccountInfo() async throws -> Account? {
-        let userId: String = try keychainStorage.get(for: .userID)
+        let id: String = try keychainStorage.get(for: .accountId)
+        let userId: String = try keychainStorage.get(for: .accountId)
         let account = try await accountRepository.getAccount(by: userId)
         return account
     }
@@ -64,12 +65,12 @@ public actor SessionManager {
             currencyId: "d67bdffe-9f2d-45e4-809a-c566f537dfb7"
         )
         let account = try await accountRepository.createAccount(user: user)
-        try keychainStorage.save(account.userId, for: .userID)
+        try keychainStorage.save(account.id, for: .accountId)
         return account
     }
     
     public func delete() async throws {
-        let userId: String = try keychainStorage.get(for: .userID)
+        let userId: String = try keychainStorage.get(for: .accountId)
         try await accountRepository.delete(id: userId)
         try await authRepository.delete()
         try keychainStorage.delete(for: .accessToken)
@@ -83,7 +84,7 @@ public actor SessionManager {
             let refreshToken: String = try keychainStorage.get(
                 for: .refreshToken
             )
-
+            
             let session = try await authRepository.refreshSession(
                 refreshToken: refreshToken
             )
@@ -92,7 +93,6 @@ public actor SessionManager {
 
             account = try await getAccountInfo()
             state = .authorised
-
         } catch {
             state = .unauthorised
         }

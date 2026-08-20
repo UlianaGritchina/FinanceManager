@@ -5,18 +5,24 @@
 //  Created by Ульяна Гритчина on 17.08.2026.
 //
 
+import Account
 import AccountDomain
 import AppSession
 import Foundation
 
 @Observable
 public final class HomeViewModel {
-    let sessionManager: SessionManager
+    private let sessionManager: SessionManager
     
+    let accountViewModel: AccountViewModel
+
     private var account: Account?
     
-    public init(sessionManager: SessionManager) {
+    var isShowAccountView = false
+    
+    public init(sessionManager: SessionManager, accountViewModel: AccountViewModel) {
         self.sessionManager = sessionManager
+        self.accountViewModel = accountViewModel
     }
     
     var userName: String {
@@ -32,5 +38,9 @@ public final class HomeViewModel {
         Task {
             account = await sessionManager.account
         }
+    }
+    
+    func showAccountView() {
+        isShowAccountView = true
     }
 }

@@ -28,7 +28,6 @@ public final class NetworkClientImpl: NetworkClient, Sendable {
     public func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         let request = try makeRequest(for: endpoint)
         let (data, response) = try await session.data(for: request)
-        
         try validate(response)
         
         return try JSONDecoder().decode(T.self, from: data)
