@@ -26,11 +26,15 @@ public final class CoreAssembly: Assembly {
             AccessTokenProviderImpl(tokenStore: resolver.resolve(TokenStore.self)!)
         }
         
+        container.register(RequestInterceptor.self) { resolver in
+            AuthInterceptor(tokenProvider: resolver.resolve(AccessTokenProvider.self)!)
+        }
+        
         container.register(NetworkClient.self) { resolver in
             NetworkClientImpl(
                 baseURL: AppConfiguration.baseURL,
                 requestBuilder: resolver.resolve(RequestBuilder.self)!,
-                tokenProvider: resolver.resolve(AccessTokenProvider.self)!
+                interceptor: resolver.resolve(RequestInterceptor.self)!
             )
         }
         .inObjectScope(.container)

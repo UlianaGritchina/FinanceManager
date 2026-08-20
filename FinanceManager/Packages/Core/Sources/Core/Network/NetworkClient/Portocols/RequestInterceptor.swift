@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+public protocol RequestInterceptor: Sendable {
+    func intercept(_ request: URLRequest, endpoint: Endpoint) throws -> URLRequest
+}
