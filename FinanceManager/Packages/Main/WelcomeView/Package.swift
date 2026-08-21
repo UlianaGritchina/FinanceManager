@@ -17,6 +17,7 @@ let package = Package(
         .package(path: "../Account"),
         .package(path: "../Authorization"),
         .package(path: "../Core"),
+        .package(path: "../AppSession"),
     ],
     targets: [
         .target(
@@ -25,6 +26,7 @@ let package = Package(
                 .product(name: "AccountDomain", package: "AccountDomain"),
                 .product(name: "Account", package: "Account"),
                 .product(name: "Authorization", package: "Authorization"),
+                .product(name: "AppSession", package: "AppSession"),
                 .product(name: "Core", package: "Core"),
             ]
         ),

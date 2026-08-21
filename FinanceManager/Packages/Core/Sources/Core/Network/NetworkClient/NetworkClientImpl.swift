@@ -11,24 +11,23 @@ public final class NetworkClientImpl: NetworkClient, Sendable {
     private let baseURL: URL
     private let session: URLSession
     private let requestBuilder: RequestBuilder
-    private let tokenProvider: AccessTokenProvider
+    private let interceptor: RequestInterceptor
     
     public init(
         baseURL: URL,
         session: URLSession = .shared,
         requestBuilder: RequestBuilder,
-        tokenProvider: AccessTokenProvider
+        interceptor: RequestInterceptor
     ) {
         self.baseURL = baseURL
         self.session = session
         self.requestBuilder = requestBuilder
-        self.tokenProvider = tokenProvider
+        self.interceptor = interceptor
     }
     
     public func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         let request = try makeRequest(for: endpoint)
         let (data, response) = try await session.data(for: request)
-        
         try validate(response)
         
         return try JSONDecoder().decode(T.self, from: data)
@@ -46,15 +45,9 @@ public final class NetworkClientImpl: NetworkClient, Sendable {
 // MARK: - Private
 
 private extension NetworkClientImpl {
-    
     func makeRequest(for endpoint: Endpoint) throws -> URLRequest {
         var request = try requestBuilder.build(for: endpoint)
-        
-        if endpoint.access == .authenticated {
-            let token = try tokenProvider.getAccessToken()
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
-        
+        request = try interceptor.intercept(request, endpoint: endpoint)
         return request
     }
     

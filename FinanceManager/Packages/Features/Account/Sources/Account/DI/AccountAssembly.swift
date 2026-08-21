@@ -1,14 +1,14 @@
 //
-//  File.swift
+//  AccountAssembly.swift
 //  Account
 //
 //  Created by Ульяна Гритчина on 27.07.2026.
 //
 
-import Core
+import AppSession
 import AccountData
 import AccountDomain
-import Foundation
+import Core
 import Swinject
 
 final public class AccountAssembly: Assembly {
@@ -19,6 +19,10 @@ final public class AccountAssembly: Assembly {
             AccountApiImpl(
                 networkClient: resolver.resolve(NetworkClient.self)!
             )
+        }
+        
+        container.register(AccountViewModel.self) { resolver in
+            AccountViewModel(sessionManager: resolver.resolve(SessionManager.self)!)
         }
         
         container.register(AccountRepository.self) { resolver in

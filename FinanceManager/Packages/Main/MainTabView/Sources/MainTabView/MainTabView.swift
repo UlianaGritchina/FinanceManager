@@ -9,11 +9,15 @@ import SwiftUI
 import Home
 
 public struct MainTabView: View {
-    public init() { }
+    private let homeViewModel: HomeViewModel
+    
+    public init(homeViewModel: HomeViewModel) {
+        self.homeViewModel = homeViewModel
+    }
     
     public var body: some View {
         TabView {
-            Text("Home")
+            HomeView(viewModel: homeViewModel)
                 .tabItem { Label("Home", systemImage: "house") }
             
             Text("Analytics")
@@ -23,8 +27,4 @@ public struct MainTabView: View {
                 .tabItem { Label("Settings", systemImage: "gear") }
         }
     }
-}
-
-#Preview {
-    MainTabView()
 }

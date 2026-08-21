@@ -14,12 +14,16 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../AppSession"),
+        .package(path: "../Account"),
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
     ],
     targets: [
         .target(
             name: "Home",
             dependencies: [
                 .product(name: "AppSession", package: "AppSession"),
+                .product(name: "Account", package: "Account"),
+                "Swinject",
             ]
         ),
         .testTarget(

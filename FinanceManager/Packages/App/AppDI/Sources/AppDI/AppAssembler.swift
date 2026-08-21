@@ -10,6 +10,7 @@ import Authorization
 import Core
 import Foundation
 import Account
+import Home
 import Swinject
 import RootView
 import WelcomeView
@@ -22,7 +23,8 @@ public enum AppAssembler {
         AuthAssembly(),
         WelcomeViewAssembly(),
         AccountAssembly(),
-        SessionAssembly()
+        SessionAssembly(),
+        HomeAssembly()
     ])
 }
 

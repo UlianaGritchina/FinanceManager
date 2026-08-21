@@ -5,6 +5,7 @@
 //  Created by Ульяна Гритчина on 17.08.2026.
 //
 
+import Account
 import SwiftUI
 
 public struct HomeView: View {
@@ -20,13 +21,20 @@ public struct HomeView: View {
                 VStack {
                     Text("Balance: \(viewModel.balance)")
                         .font(.title3)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Button("Open account") {
+                        viewModel.showAccountView()
+                    }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             }
             .navigationTitle(viewModel.userName)
             .navigationBarTitleDisplayMode(.inline)
-            .task {
+            .sheet(isPresented: $viewModel.isShowAccountView, content: {
+                AccountView(viewModel: viewModel.accountViewModel)
+            })
+            .onAppear {
                 viewModel.setUserInfo()
             }
         }

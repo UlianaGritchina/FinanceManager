@@ -5,10 +5,12 @@
 //  Created by Ульяна Гритчина on 25.07.2026.
 //
 
-import Authorization
-import AuthorizationDomain
+import AppSession
 import AccountDomain
 import Account
+import Authorization
+import AuthorizationDomain
+import AppSession
 import Core
 import Foundation
 import Account
@@ -21,18 +23,14 @@ public final class WelcomeViewAssembly: Assembly {
     public func assemble(container: Container) {
         container.register(WelcomeViewModel.self) { resolver in
             WelcomeViewModel(
-                keychainStorage: resolver.resolve(KeychainStorage.self)!,
-                authRepository: resolver.resolve(AuthRepository.self)!,
-                accountRepository: resolver.resolve(AccountRepository.self)!,
-                createAccountViewModel: resolver.resolve(CreateNewAccountViewModel.self)!
+                sessionManager: resolver.resolve(SessionManager.self)!,
+                createAccountViewModel: resolver.resolve(CreateAccountViewViewModel.self)!
             )
         }
         
-        container.register(CreateNewAccountViewModel.self) { resolver in
-            CreateNewAccountViewModel(
-                keychainStorage: resolver.resolve(KeychainStorage.self)!,
-                authRepository: resolver.resolve(AuthRepository.self)!,
-                accountRepository: resolver.resolve(AccountRepository.self)!
+        container.register(CreateAccountViewViewModel.self) { resolver in
+            CreateAccountViewViewModel(
+                sessionManager: resolver.resolve(SessionManager.self)!
             )
         }
     }
