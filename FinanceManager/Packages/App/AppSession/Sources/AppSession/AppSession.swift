@@ -51,8 +51,6 @@ public actor SessionManager {
     }
     
     public func getAccountInfo() async throws -> Account? {
-        let id: String = try keychainStorage.get(for: .accountId)
-        let userId: String = try keychainStorage.get(for: .accountId)
         let account = try await accountRepository.getAccount(by: userId)
         return account
     }
@@ -66,6 +64,7 @@ public actor SessionManager {
         )
         let account = try await accountRepository.createAccount(user: user)
         try keychainStorage.save(account.id, for: .accountId)
+        state = .authorised
         return account
     }
     
