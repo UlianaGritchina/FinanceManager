@@ -19,8 +19,10 @@ enum AuthEndpoint {
 extension AuthEndpoint: Endpoint {
     var access: Core.EndpointAccess {
         switch self {
-        case .registerNewUser: .publicEndpoint
-        default: .authenticated
+        case .registerNewUser, .refreshUser:
+                .publicEndpoint
+        default:
+                .authenticated
         }
     }
     

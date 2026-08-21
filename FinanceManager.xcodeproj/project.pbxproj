@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0A3F503038B449009C0135 /* AppSession in Frameworks */ = {isa = PBXBuildFile; productRef = 0E0A3F4F3038B449009C0135 /* AppSession */; };
 		0E24157A3030DE17008CF01E /* MainTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2415793030DE17008CF01E /* MainTabView */; };
 		0E24157D3030DE4F008CF01E /* RootView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E24157C3030DE4F008CF01E /* RootView */; };
 		0E32F22C3030EAA5000D72C0 /* AppDI in Frameworks */ = {isa = PBXBuildFile; productRef = 0E32F22B3030EAA5000D72C0 /* AppDI */; };
@@ -20,7 +21,6 @@
 		0EA6729C301A33AC00391702 /* AccountData in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA6729B301A33AC00391702 /* AccountData */; };
 		0EA6729E301A33AF00391702 /* AccountDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA6729D301A33AF00391702 /* AccountDomain */; };
 		0EC181413010E860005B9337 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0EC181403010E860005B9337 /* Core */; };
-		0EDE7FAA302E0279006DA7C3 /* AppSession in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDE7FA9302E0279006DA7C3 /* AppSession */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +97,7 @@
 				0E6D71B430121B8900521F65 /* Swinject in Frameworks */,
 				0EA6729A301A33A900391702 /* Account in Frameworks */,
 				0E6D72403012819500521F65 /* Authorization in Frameworks */,
-				0EDE7FAA302E0279006DA7C3 /* AppSession in Frameworks */,
+				0E0A3F503038B449009C0135 /* AppSession in Frameworks */,
 				0EA6729C301A33AC00391702 /* AccountData in Frameworks */,
 				0E9494D43030F07000074F89 /* WelcomeView in Frameworks */,
 				0EC181413010E860005B9337 /* Core in Frameworks */,
@@ -178,12 +178,12 @@
 				0EA67299301A33A900391702 /* Account */,
 				0EA6729B301A33AC00391702 /* AccountData */,
 				0EA6729D301A33AF00391702 /* AccountDomain */,
-				0EDE7FA9302E0279006DA7C3 /* AppSession */,
 				0E2415793030DE17008CF01E /* MainTabView */,
 				0E24157C3030DE4F008CF01E /* RootView */,
 				0E32F22B3030EAA5000D72C0 /* AppDI */,
 				0E9494D33030F07000074F89 /* WelcomeView */,
 				0E59873C30335CC00082F142 /* Home */,
+				0E0A3F4F3038B449009C0135 /* AppSession */,
 			);
 			productName = FinanceManager;
 			productReference = 0E3345E0300F7DEE0032FFD1 /* FinanceManager.app */;
@@ -680,6 +680,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E0A3F4F3038B449009C0135 /* AppSession */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppSession;
+		};
 		0E2415793030DE17008CF01E /* MainTabView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MainTabView;
@@ -732,10 +736,6 @@
 		0EC181403010E860005B9337 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
-		};
-		0EDE7FA9302E0279006DA7C3 /* AppSession */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AppSession;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

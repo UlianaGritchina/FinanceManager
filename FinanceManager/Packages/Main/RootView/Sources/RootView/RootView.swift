@@ -26,7 +26,7 @@ public struct RootView: View {
                 Text("loading")
                 
             case .authorised:
-                MainTabView()
+                MainTabView(homeViewModel: viewModel.homeViewModel)
             
             case .needsAccount:
                 Text("needsAccount")

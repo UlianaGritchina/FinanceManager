@@ -1,5 +1,5 @@
 //
-//  CreateNewAccountView.swift
+//  CreateAccountView.swift
 //  FinanceManager
 //
 //  Created by Ульяна Гритчина on 30.07.2026.
@@ -8,10 +8,10 @@
 import AccountDomain
 import SwiftUI
 
-public struct CreateNewAccountView: View {
-    @State private var viewModel: CreateNewAccountViewModel
+public struct CreateAccountView: View {
+    @State private var viewModel: CreateAccountViewViewModel
     
-    public init(viewModel: CreateNewAccountViewModel) {
+    public init(viewModel: CreateAccountViewViewModel) {
         self.viewModel = viewModel
     }
     

@@ -5,6 +5,7 @@
 //  Created by Ульяна Гритчина on 25.07.2026.
 //
 
+import AppSession
 import AuthorizationDomain
 import AccountDomain
 import Core
@@ -13,25 +14,18 @@ import Account
 
 @Observable
 public final class WelcomeViewModel {
-    private let keychainStorage: KeychainStorage
-    private let authRepository: AuthRepository
-    private let accountRepository: AccountRepository
-    
-    let createAccountViewModel: CreateNewAccountViewModel
+    private let sessionManager: SessionManager
+    let createAccountViewModel: CreateAccountViewViewModel
     
     var email: String = ""
     var password: String = ""
     var accountInfo: Account?
     
     public init(
-        keychainStorage: KeychainStorage,
-        authRepository: AuthRepository,
-        accountRepository: AccountRepository,
-        createAccountViewModel: CreateNewAccountViewModel
+        sessionManager: SessionManager,
+        createAccountViewModel: CreateAccountViewViewModel
     ) {
-        self.keychainStorage = keychainStorage
-        self.authRepository = authRepository
-        self.accountRepository = accountRepository
+        self.sessionManager = sessionManager
         self.createAccountViewModel = createAccountViewModel
     }
     
@@ -66,46 +60,22 @@ public final class WelcomeViewModel {
     private func login() async throws {
         let userName = try UserName(email)
         let password = try Password(password)
-        
-        let _ = try await authRepository.login(
-            user: RegisterUserCredentials(
-                name: userName,
-                password: password
-            )
-        )
+        try await sessionManager.login(name: userName, password: password)
         await getAccountInfo()
     }
     
     @MainActor
     func getAccountInfo() async {
-        do {
-            let userId: String = try keychainStorage.get(for: .userID)
-            let account = try await accountRepository.getAccount(by: userId)
-            accountInfo = account
-        } catch {
-            
-        }
+        accountInfo = await sessionManager.account
     }
     
     @MainActor
     private func createUserAccount() async throws {
-        let user = UserInfo(
-            id: UUID().uuidString,
-            name: "Q",
-            balance: 0,
-            currencyId: "d67bdffe-9f2d-45e4-809a-c566f537dfb7"
-        )
-        let _ = try await accountRepository.createAccount(user: user)
+        let _ = try await sessionManager.createUserAccount(name: email)
     }
     
     @MainActor
     private func delete() async throws {
-        let userId: String = try keychainStorage.get(for: .userID)
-        try await accountRepository.delete(id: userId)
-        try await authRepository.delete()
-        accountInfo = nil
-        try keychainStorage.delete(for: .accessToken)
-        try keychainStorage.delete(for: .refreshToken)
-        try keychainStorage.delete(for: .registerUserCredentials)
+        try await sessionManager.delete()
     }
 }
