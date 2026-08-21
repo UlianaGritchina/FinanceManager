@@ -51,6 +51,7 @@ public actor SessionManager {
     }
     
     public func getAccountInfo() async throws -> Account? {
+        let userId: String = try keychainStorage.get(for: .accountId)
         let account = try await accountRepository.getAccount(by: userId)
         return account
     }
