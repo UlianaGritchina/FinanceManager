@@ -30,12 +30,25 @@ public final class CoreAssembly: Assembly {
             AuthInterceptor(tokenProvider: resolver.resolve(AccessTokenProvider.self)!)
         }
         
+        container.register(HTTPClient.self) { resolver in
+            URLSessionHTTPClient()
+        }
+        
+        container.register(ResponseValidator.self) { resolver in
+            HTTPResponseValidator()
+        }
+        
+        container.register(ResponseDecoder.self) { resolver in
+            JSONResponseDecoder()
+        }
+        
         container.register(NetworkClient.self) { resolver in
-            NetworkClientImpl(
-                baseURL: AppConfiguration.baseURL,
+            DefaultNetworkClient(
                 requestBuilder: resolver.resolve(RequestBuilder.self)!,
-                interceptor: resolver.resolve(RequestInterceptor.self)!
-            )
+                httpClient: resolver.resolve(HTTPClient.self)!,
+                validator: resolver.resolve(ResponseValidator.self)!,
+                decoder: resolver.resolve(ResponseDecoder.self)!,
+                interceptor: resolver.resolve(RequestInterceptor.self)!)
         }
         .inObjectScope(.container)
         
