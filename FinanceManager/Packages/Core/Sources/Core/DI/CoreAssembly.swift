@@ -14,7 +14,7 @@ public final class CoreAssembly: Assembly {
     
     public func assemble(container: Container) {
         container.register(RequestBuilder.self) { resolver in
-            RequestBuilderImpl(baseURL: AppConfiguration.baseURL)
+            URLRequestBuilder(baseURL: AppConfiguration.baseURL)
         }
         .inObjectScope(.container)
         
