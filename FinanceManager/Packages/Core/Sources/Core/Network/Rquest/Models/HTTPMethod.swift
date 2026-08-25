@@ -13,5 +13,3 @@ public enum HTTPMethod: String {
     case put = "PUT"
     case delete = "DELETE"
 }
-
-public typealias HTTPHeaders = [String: String]

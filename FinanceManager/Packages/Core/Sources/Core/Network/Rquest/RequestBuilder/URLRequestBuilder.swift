@@ -1,5 +1,5 @@
 //
-//  RequestBuilderImpl.swift
+//  URLRequestBuilder.swift
 //  Core
 //
 //  Created by Ульяна Гритчина on 22.07.2026.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class RequestBuilderImpl: RequestBuilder {
+public final class URLRequestBuilder: RequestBuilder {
     private let baseURL: URL
     
     public init(baseURL: URL) {
