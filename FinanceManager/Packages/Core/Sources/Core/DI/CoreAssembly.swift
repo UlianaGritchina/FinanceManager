@@ -14,7 +14,7 @@ public final class CoreAssembly: Assembly {
     
     public func assemble(container: Container) {
         container.register(RequestBuilder.self) { resolver in
-            RequestBuilderImpl(baseURL: AppConfiguration.baseURL)
+            URLRequestBuilder(baseURL: AppConfiguration.baseURL)
         }
         .inObjectScope(.container)
         
@@ -30,12 +30,25 @@ public final class CoreAssembly: Assembly {
             AuthInterceptor(tokenProvider: resolver.resolve(AccessTokenProvider.self)!)
         }
         
+        container.register(HTTPClient.self) { resolver in
+            URLSessionHTTPClient()
+        }
+        
+        container.register(ResponseValidator.self) { resolver in
+            HTTPResponseValidator()
+        }
+        
+        container.register(ResponseDecoder.self) { resolver in
+            JSONResponseDecoder()
+        }
+        
         container.register(NetworkClient.self) { resolver in
-            NetworkClientImpl(
-                baseURL: AppConfiguration.baseURL,
+            DefaultNetworkClient(
                 requestBuilder: resolver.resolve(RequestBuilder.self)!,
-                interceptor: resolver.resolve(RequestInterceptor.self)!
-            )
+                httpClient: resolver.resolve(HTTPClient.self)!,
+                validator: resolver.resolve(ResponseValidator.self)!,
+                decoder: resolver.resolve(ResponseDecoder.self)!,
+                interceptor: resolver.resolve(RequestInterceptor.self)!)
         }
         .inObjectScope(.container)
         
